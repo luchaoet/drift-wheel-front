@@ -1,0 +1,25 @@
+.height-90 {
+  height: 90px;
+}
+
+.fixed {
+  background-color: rgba(255, 255, 255, .9);
+  height: 90px;
+}
+
+.content {
+  max-width: 1210px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+  font-size: 17px;
+}
+
+.content img {
+  width: auto;
+  height: 60px;
+}
+
+.active {
+  color: #c8351c !important;
+}

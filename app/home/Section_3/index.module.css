@@ -1,0 +1,38 @@
+.wrapper {
+  padding: 75px 15px;
+}
+
+.wrapper h2 {
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+.wrapper p {
+  font-size: 17px;
+}
+
+.product {
+  display: grid;
+  grid-column-gap: 30px;
+  grid-template-columns: repeat(4, 1fr);
+  margin-top: 75px;
+}
+
+.product dl:hover dt a {
+  transform: scale(1.1);
+}
+
+.product img {
+  width: 100%;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #000;
+  margin: 25px 0 10px;
+}
+
+.desc {
+  font-size: 17px;
+}

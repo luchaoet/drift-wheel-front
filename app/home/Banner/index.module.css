@@ -1,0 +1,28 @@
+.content {
+  height: calc(100vh - 90px);
+  position: relative;
+  display: block;
+
+}
+
+.title {
+  position: absolute;
+  top: 50%;
+  padding: 0 20px;
+  transform: translateY(-50%);
+}
+
+.title dt {
+  font-size: 80px;
+  line-height: 100px;
+  margin-bottom: 40px;
+}
+
+.title dd {
+  background: #b53019;
+  padding: 10px;
+  box-shadow: none;
+  border: 0 solid rgba(0, 0, 0, 1);
+  color: #fff;
+  font-size: 32px;
+}
