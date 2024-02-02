@@ -1,12 +1,10 @@
-"use client"
-
 import styles from './index.module.css'
 import classnames from "classnames";
 import logo from '../../icon.png'
 import Link from 'next/link'
+import { SearchOutlined } from '@ant-design/icons'
 
 function Menu(props: any) {
-  console.log(22, props)
   return (
     <div className={classnames(styles['height-90'], 'g-w-100per')}>
       <div className={classnames(styles.fixed, 'g-p-f g-w-100per g-ai-c g-zi-99')}>
@@ -30,6 +28,10 @@ function Menu(props: any) {
               <Link href="company-activities">Company Activities</Link>
             </li>
             <li className={classnames('g-p-lr-14 g-c-p g-c-b g-fw-b')}>More</li>
+            <li className={classnames(styles.search, 'g-p-r')}>
+              <input />
+              <SearchOutlined style={{ fontSize: 16 }} className={styles.icon} />
+            </li>
           </ul>
         </div>
       </div>

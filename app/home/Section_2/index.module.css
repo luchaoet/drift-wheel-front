@@ -1,8 +1,8 @@
 .wrapper {
   /* background: url(https://wheelshome.com/wp-content/uploads/2021/06/hp6Section1BG.jpg) 0 0 no-repeat;
   background-size: cover; */
-  padding-bottom: 80px;
-  padding-top: 80px;
+  padding-bottom: 120px;
+  padding-top: 120px;
 }
 
 .container {
@@ -27,7 +27,7 @@
 }
 
 .carousel-slide {
-  height: 313px;
+  height: 400px;
 }
 
 .button {

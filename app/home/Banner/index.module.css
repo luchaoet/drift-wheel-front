@@ -1,4 +1,4 @@
-.content {
+.container {
   height: calc(100vh - 90px);
   position: relative;
   display: block;
@@ -16,6 +16,7 @@
   font-size: 80px;
   line-height: 100px;
   margin-bottom: 40px;
+  color: #fff;
 }
 
 .title dd {

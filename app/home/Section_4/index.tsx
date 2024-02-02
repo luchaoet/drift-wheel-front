@@ -4,14 +4,14 @@ import classnames from "classnames";
 function App() {
   const data = {
     left: [
-      { icon: 'https://wheelshome.com/wp-content/uploads/2021/06/whyusLogo.jpg', title: 'Easy Transport', desc: '20 minutes drive from our buffer warehouse to seaport Ningbo China' },
-      { icon: 'https://wheelshome.com/wp-content/uploads/2021/06/whyusLogo.jpg', title: 'Certified Manufacture', desc: 'All wheels are from big scale manufacture which is certificated by ISO9001-2000, ISO/TS16949, VIA, JWL and TUV, ect' },
-      { icon: 'https://wheelshome.com/wp-content/uploads/2021/06/whyusLogo.jpg', title: 'Full Range Stock', desc: 'More than 50,000 pieces both in replica wheel and after-market wheel, we can ship stock wheels in short time' },
+      { icon: '/images/section-02_3.png', title: 'Easy Transport', desc: '20 minutes drive from our buffer warehouse to seaport Ningbo China' },
+      { icon: '/images/section-02_4.png', title: 'Certified Manufacture', desc: 'All wheels are from big scale manufacture which is certificated by ISO9001-2000, ISO/TS16949, VIA, JWL and TUV, ect' },
+      { icon: '/images/section-02_5.png', title: 'Full Range Stock', desc: 'More than 50,000 pieces both in replica wheel and after-market wheel, we can ship stock wheels in short time' },
     ],
     right: [
-      { icon: 'https://wheelshome.com/wp-content/uploads/2021/06/whyusLogo.jpg', title: 'Easy Transport', desc: '20 minutes drive from our buffer warehouse to seaport Ningbo China' },
-      { icon: 'https://wheelshome.com/wp-content/uploads/2021/06/whyusLogo.jpg', title: 'Certified Manufacture', desc: 'All wheels are from big scale manufacture which is certificated by ISO9001-2000, ISO/TS16949, VIA, JWL and TUV, ect' },
-      { icon: 'https://wheelshome.com/wp-content/uploads/2021/06/whyusLogo.jpg', title: 'Full Range Stock', desc: 'More than 50,000 pieces both in replica wheel and after-market wheel, we can ship stock wheels in short time' },
+      { icon: '/images/section-02_6.png', title: 'Easy Transport', desc: '20 minutes drive from our buffer warehouse to seaport Ningbo China' },
+      { icon: '/images/section-02_7.png', title: 'Certified Manufacture', desc: 'All wheels are from big scale manufacture which is certificated by ISO9001-2000, ISO/TS16949, VIA, JWL and TUV, ect' },
+      { icon: '/images/section-02_8.png', title: 'Full Range Stock', desc: 'More than 50,000 pieces both in replica wheel and after-market wheel, we can ship stock wheels in short time' },
     ]
   }
 
@@ -37,7 +37,7 @@ function App() {
             </ul>
           </div>
           <div className={classnames(styles.middle, 'g-fs-0')}>
-            <img src="https://wheelshome.com/wp-content/uploads/2021/06/whyusLogo.jpg" alt="" />
+            <img src="/images/section-02_1.png" alt="" />
           </div>
           <div className={styles.right}>
             <ul>

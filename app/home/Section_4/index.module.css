@@ -1,6 +1,6 @@
 .wrapper {
   padding: 35px 0 70px;
-  background: url(https://wheelshome.com/wp-content/uploads/2021/06/hp6WhyusBG.jpg) 0 0 no-repeat;
+  background: url(/images/section-02_2.png) 0 0 no-repeat;
   background-size: cover;
 }
 
@@ -56,8 +56,8 @@
 .middle {
   width: 277px;
   height: 277px;
-  border-radius: 50%;
-  border: 7px solid #f0f0f0;
+  /* border-radius: 50%;
+  border: 7px solid #f0f0f0; */
   overflow: hidden;
   margin: 0 60px;
 }

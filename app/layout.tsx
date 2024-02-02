@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Menu from './components/Menu'
 import Copyright from './components/Copyright'
+import Footer from './components/Footer'
 
 import "./globals.css";
 import '@luchao/base-css';
@@ -33,6 +34,7 @@ export default function RootLayout({
         <body className={inter.className}>
           <Menu />
           {children}
+          <Footer />
           <Copyright />
         </body>
       </html>

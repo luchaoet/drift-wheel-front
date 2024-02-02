@@ -1,0 +1,69 @@
+.container {
+  width: 90%;
+  max-width: 1170px;
+  margin: 0 auto;
+  display: grid;
+  grid-column-gap: 130px;
+  grid-template-columns: repeat(3, 1fr);
+  color: #fff;
+}
+
+.wrapper {
+  background: url(/images/section-03.png) 0 0 no-repeat;
+  background-size: cover;
+  padding: 85px 0 76px;
+}
+
+.container dl img {
+  width: 210px;
+}
+
+.desc {
+  margin-top: 50px;
+  font-size: 18px;
+  font-weight: 500;
+  color: #fff;
+  line-height: 25px;
+}
+
+.more {
+  margin-top: 50px;
+  font-size: 18px;
+  color: #EB3C1B;
+}
+
+.info dt {
+  font-size: 25px;
+  font-weight: 600;
+  color: #FFFFFF;
+  line-height: 36px;
+  margin-bottom: 50px;
+  padding-bottom: 15px;
+  position: relative;
+}
+
+.info dt:after {
+  position: absolute;
+  content: '';
+  width: 100px;
+  border: 1px solid #EB3C1B;
+  left: 0;
+  bottom: 0;
+}
+
+.info dd span {
+  font-size: 14px;
+  font-weight: 700;
+  color: #FFFFFF;
+  line-height: 20x;
+}
+
+.info dd i {
+  font-size: 14px;
+  font-weight: 400;
+  margin-left: 10px;
+}
+
+.info dd+dd {
+  margin-top: 20px;
+}

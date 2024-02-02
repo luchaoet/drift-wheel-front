@@ -3,19 +3,19 @@ import styles from './index.module.css'
 
 function Banner() {
   return (
-    <Carousel autoplay>
+    <Carousel autoplay={false}>
       <div>
-        <h3 className={styles.content}>
+        <h3 className={styles.container}>
           <dl className={styles.title}>
             <dt>One Stop Alloy<br />Wheels Supplier</dt>
             <dd>20 years alloy wheels experience,<br />good reputation in global market</dd>
           </dl>
-          <img className="g-h-100per" src="http://img.hisupplier.com/var/userImages/2012-05/16/134110677_s.gif" alt="ss" />
+          <img className='g-w-100per g-h-100per g-of-cover' src="/images/banner.png" alt="ss" />
         </h3>
       </div>
       <div>
         <h3 className={styles.content}>
-          <img className="g-h-100per" src="http://img.hisupplier.com/var/userImages/2012-05/16/134110677_s.gif" alt="ss" />
+          <img className='g-w-100per g-h-100per g-of-cover' src="/images/banner.png" alt="ss" />
         </h3>
       </div>
     </Carousel>
