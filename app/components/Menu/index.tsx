@@ -1,6 +1,5 @@
 import styles from './index.module.css'
 import classnames from "classnames";
-import logo from '../../icon.png'
 import Link from 'next/link'
 import { SearchOutlined } from '@ant-design/icons'
 
@@ -9,7 +8,7 @@ function Menu(props: any) {
     <div className={classnames(styles['height-90'], 'g-w-100per')}>
       <div className={classnames(styles.fixed, 'g-p-f g-w-100per g-ai-c g-zi-99')}>
         <div className={classnames(styles.content, 'g-jc-sb-ai-c')}>
-          <img src={logo.src} alt="logo" />
+          <img src="/images/section-04.png" alt="logo" />
           <ul className='g-ai-c'>
             <li className={classnames('g-p-lr-14 g-c-p g-c-b g-fw-b', styles.active)}>
               <Link href="/">Home</Link>

@@ -1,15 +1,16 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+// import { Inter } from "next/font/google";
 import Menu from './components/Menu'
 import Copyright from './components/Copyright'
 import Footer from './components/Footer'
+import { ConfigProvider } from 'antd'
+import enUS from 'antd/locale/en_US';
+import useRem from './utils/useRem'
 
 import "./globals.css";
 import '@luchao/base-css';
-import { ConfigProvider } from 'antd'
-import enUS from 'antd/locale/en_US';
 
-const inter = Inter({ subsets: ["latin"] });
+// const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "China MONOBLOCK FORGED Manufacturer, one peice forged wheels Supplier and Factory",
@@ -21,6 +22,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
   return (
     <ConfigProvider
       locale={enUS}
@@ -31,7 +33,7 @@ export default function RootLayout({
       }}
     >
       <html lang="en">
-        <body className={inter.className}>
+        <body>
           <Menu />
           {children}
           <Footer />

@@ -10,8 +10,8 @@ function App() {
 
   return (
     <>
-      <section className={styles.wrapper} onClick={() => setIsModalOpen(true)}>
-        <img src="https://wheelshome.com/wp-content/uploads/2022/11/1.jpg" alt="" />
+      <section className={classnames(styles.wrapper, 'g-c-p')} onClick={() => setIsModalOpen(true)}>
+        <img className='g-w-100per' src="/images/section-05.png" alt="" />
       </section>
       <Modal destroyOnClose footer={null} title="Introduction of Drift Wheel" open={isModalOpen} onOk={() => setIsModalOpen(false)} onCancel={() => setIsModalOpen(false)}>
         <video className='g-w-100per' autoPlay src="/images/video.mp4"></video>

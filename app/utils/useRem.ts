@@ -1,27 +1,18 @@
-'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react';
 
-function useRem(): number[] {
-  const [clientWidth, setClientWidth] = useState(100)
-
-  var docEl = document.documentElement,
-    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
-    recalc = function () {
-      var clientWidth = docEl.clientWidth;
-      if (!clientWidth) return;
-      if (clientWidth >= 1920) {
-        setClientWidth(100)
-      }
-      else {
-        setClientWidth(100 * (clientWidth / 1920))
-      }
+function useRem() {
+  const [rem, setRem] = useState(100); // 初始化 rem 值  
+  useEffect(() => {
+    const handleResize = () => {
+      setRem(window.innerWidth / 750); // 根据窗口宽度计算 rem 值  
     };
-  if (!document.addEventListener) return [clientWidth];
-  window.addEventListener(resizeEvt, recalc, false);
-  document.addEventListener('DOMContentLoaded', recalc, false);
-
-  return [clientWidth]
+    window.addEventListener('resize', handleResize); // 添加窗口大小变化监听器  
+    return () => {
+      window.removeEventListener('resize', handleResize); // 移除监听器  
+    };
+  }, []); // 在组件卸载时清除监听器  
+  return rem;
 }
 
 export default useRem
