@@ -24,6 +24,10 @@
   margin-top: 50px;
 }
 
+.left {
+  margin-right: 60px;
+}
+
 .left ul li img {
   width: 100px;
   border-radius: 50%;
@@ -31,6 +35,10 @@
 
 .left ul li dl {
   margin-left: 20px;
+}
+
+.right {
+  margin-left: 60px;
 }
 
 .right ul li img {
@@ -59,7 +67,6 @@
   /* border-radius: 50%;
   border: 7px solid #f0f0f0; */
   overflow: hidden;
-  margin: 0 60px;
 }
 
 .middle img {
@@ -68,4 +75,18 @@
 
 .container li+li {
   margin-top: 40px;
+}
+
+@media only screen and (max-width: 1200px) {
+  .middle {
+    display: none;
+  }
+
+  .left {
+    margin-bottom: 40px;
+  }
+
+  .advantages {
+    flex-direction: column;
+  }
 }

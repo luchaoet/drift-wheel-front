@@ -6,7 +6,7 @@ function App() {
   return (
     <section className={styles.wrapper}>
       <div className={classnames(styles.container, 'g-jc-sb-ai-c')}>
-        <div className="g-fg-1 g-mw-0">
+        <div className="g-fg-1 g-mw-0 g-w-100per">
           <Carousel autoplay>
             <div className={styles['carousel-slide']}>
               <h3>

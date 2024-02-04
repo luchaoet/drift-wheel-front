@@ -1,0 +1,66 @@
+.button {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, .08);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  transition: background-color .2s ease;
+}
+
+.toggle_bar {
+  width: 14px;
+  height: 1.5px;
+  background: #666666;
+  position: absolute;
+  transition-property: transform;
+  transition-duration: .25s;
+  transition-timing-function: cubic-bezier(.77, 0, .175, 1);
+}
+
+.toggle_bar[data-position=top] {
+  transform: translateY(-3.5px);
+}
+
+.toggle_bar[data-position=bottom] {
+  transform: translateY(3.5px);
+}
+
+.button[data-expanded=true] .toggle_bar[data-position=top] {
+  transform: translateY(0) rotate(45deg) scaleX(1.1);
+}
+
+.button[data-expanded=true] .toggle_bar[data-position=bottom] {
+  transform: translateY(0) rotate(-45deg) scaleX(1.1);
+}
+
+.fixed_menu {
+  top: 90px;
+  left: 0;
+  height: calc(100vh - 90px);
+  display: block;
+  overflow-y: auto;
+}
+
+.fixed_menu[data-expanded=false] {
+  display: none;
+}
+
+.fixed_menu>ul>li {
+  min-height: 48px;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.fixed_menu>ul>li:not(.has-children):hover {
+  background-color: #fafafa;
+}
+
+.children {
+  height: 48px;
+}
+
+.children-list {
+  color: #666;
+}

@@ -5,7 +5,7 @@ import Copyright from './components/Copyright'
 import Footer from './components/Footer'
 import { ConfigProvider } from 'antd'
 import enUS from 'antd/locale/en_US';
-import useRem from './utils/useRem'
+// import useRem from './utils/useRem'
 
 import "./globals.css";
 import '@luchao/base-css';

@@ -36,7 +36,7 @@ function App() {
           <dt>Company Profile</dt>
           {
             profile.map((item, index) => (
-              <dd>
+              <dd key={index}>
                 <span className='g-fs-0'>{item.title}:</span>
                 <i>{item.content}</i>
               </dd>
@@ -47,7 +47,7 @@ function App() {
           <dt>Contact Us</dt>
           {
             contactUs.map((item, index) => (
-              <dd>
+              <dd key={index}>
                 <span className='g-fs-0'>{item.title}:</span>
                 <i>{item.content}</i>
               </dd>

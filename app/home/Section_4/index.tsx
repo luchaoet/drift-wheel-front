@@ -20,7 +20,7 @@ function App() {
       <div className={styles.container}>
         <h2 className='g-ta-c'>Our Advantages</h2>
         <p className='g-ta-c'>Why Drift Wheel can be your best choice in China</p>
-        <div className='g-jc-sb-ai-c'>
+        <div className={classnames(styles.advantages, 'g-jc-sb-ai-c')}>
           <div className={styles.left}>
             <ul>
               {
@@ -43,7 +43,7 @@ function App() {
             <ul>
               {
                 data.right.map((item, index) => (
-                  <li key={index} className="g-ai-c g-ta-r">
+                  <li key={index} className="g-ai-c g-ta-r g-jc-fe">
                     <dl>
                       <dt>{item.title}</dt>
                       <dd>{item.desc}</dd>

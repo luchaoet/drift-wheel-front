@@ -3,7 +3,7 @@
 }
 
 .fixed {
-  background-color: rgba(255, 255, 255, .9);
+  background-color: #fff;
   height: 90px;
 }
 
@@ -43,4 +43,25 @@
   right: 10px;
   top: 50%;
   transform: translateY(-50%);
+}
+
+.menu {
+
+  display: none;
+  align-items: center;
+}
+
+@media only screen and (min-width: 1150px) {
+  .menu {
+    display: flex;
+  }
+
+  .fixed {
+    background-color: rgba(255, 255, 255, .9);
+
+  }
+
+  .mobileMenu {
+    display: none !important;
+  }
 }

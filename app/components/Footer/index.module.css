@@ -67,3 +67,16 @@
 .info dd+dd {
   margin-top: 20px;
 }
+
+@media only screen and (max-width: 1000px) {
+  .container {
+    grid-column-gap: 60px;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .container {
+    grid-row-gap: 40px;
+    grid-template-columns: 1fr;
+  }
+}

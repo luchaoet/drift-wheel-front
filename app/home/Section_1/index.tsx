@@ -13,7 +13,7 @@ function App() {
             <Button size="large" type="primary">Check Our Stock List</Button>
           </dd>
         </dl>
-        <div className="g-fg-1 g-mw-0">
+        <div className="g-fg-1 g-mw-0 g-w-100per">
           <Carousel autoplay>
             <div className={styles['carousel-slide']}>
               <h3>
