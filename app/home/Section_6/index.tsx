@@ -18,9 +18,9 @@ function App() {
     <section className={styles.wrapper}>
       <h2 className='g-fw-b g-ta-c'>High End Alloy Wheels to Support Your Business</h2>
       <p className='g-ta-c'>Wheelshome can always be your reliable partner in China, to rocket your business with quality alloy wheels ( 8 years warranty)</p>
-      <Slick speed={12000} data={data} />
-      <Slick speed={8000} data={data} />
-      <Slick speed={12000} data={data} />
+      <Slick speed={1000} data={data} />
+      <Slick speed={1500} data={data} />
+      <Slick speed={1000} data={data} />
     </section>
   )
 }
