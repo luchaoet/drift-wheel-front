@@ -24,7 +24,7 @@ function ChildrenRender(props: any) {
             {
               data.children.map((d: any, i: number) => (
                 <li key={i}>
-                  <Link href={d.href || 'javascript:;'} style={{ height: 48 }} className='g-w-100per g-h-100per g-ai-c'>{d.name}</Link>
+                  <Link href={d.href} style={{ height: 48 }} className='g-w-100per g-h-100per g-ai-c'>{d.name}</Link>
                   {
                     d.children && (
                       <ul className='g-p-l-20'>
@@ -60,7 +60,7 @@ function MobileMenu(props: any) {
     setOpen(res)
   }
   const data: any[] = props.data || [];
-  console.log(data)
+
   return (
     <>
       <button data-expanded={open} className={classnames(styles.button, props.className, 'g-c-p')} onClick={toggle}>
