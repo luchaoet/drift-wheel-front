@@ -41,7 +41,7 @@
 }
 
 .wrapper ul {
-  animation: anima var(--animation-duration, 10s) linear 1s infinite;
+  animation: rolling var(--animation-duration, 10s) linear 1s infinite;
 }
 
 .wrapper li {
@@ -62,7 +62,7 @@
   height: 32px;
 }
 
-@keyframes anima {
+@keyframes rolling {
   from {
     transform: translateX(0);
   }
