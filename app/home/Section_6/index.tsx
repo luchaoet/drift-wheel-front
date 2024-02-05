@@ -5,14 +5,14 @@ import { useState } from 'react';
 
 function App() {
   const data = [
-    { img: 'https://wheelshome.com/wp-content/uploads/2022/02/1-Replica-Alloy-wheels.jpg', title: 'Replica Alloy Wheels Replica Alloy Wheels', desc: 'Over 30,000 wheels in stock, full range car models, you can choose directly based on brand or size' },
-    // { img: 'https://wheelshome.com/wp-content/uploads/2022/02/1-Replica-Alloy-wheels.jpg', title: 'Replica Alloy Wheels', desc: 'Over 30,000 wheels in stock, full range car models, you can choose directly based on brand or size' },
-    // { img: 'https://wheelshome.com/wp-content/uploads/2022/02/1-Replica-Alloy-wheels.jpg', title: 'Replica Alloy Wheels', desc: 'Over 30,000 wheels in stock, full range car models, you can choose directly based on brand or size' },
-    // { img: 'https://wheelshome.com/wp-content/uploads/2022/02/1-Replica-Alloy-wheels.jpg', title: 'Replica Alloy Wheels', desc: 'Over 30,000 wheels in stock, full range car models, you can choose directly based on brand or size' },
-    // { img: 'https://wheelshome.com/wp-content/uploads/2022/02/1-Replica-Alloy-wheels.jpg', title: 'Replica Alloy Wheels', desc: 'Over 30,000 wheels in stock, full range car models, you can choose directly based on brand or size' },
-    // { img: 'https://wheelshome.com/wp-content/uploads/2022/02/1-Replica-Alloy-wheels.jpg', title: 'Replica Alloy Wheels', desc: 'Over 30,000 wheels in stock, full range car models, you can choose directly based on brand or size' },
-    // { img: 'https://wheelshome.com/wp-content/uploads/2022/02/1-Replica-Alloy-wheels.jpg', title: 'Replica Alloy Wheels', desc: 'Over 30,000 wheels in stock, full range car models, you can choose directly based on brand or size' },
-    // { img: 'https://wheelshome.com/wp-content/uploads/2022/02/1-Replica-Alloy-wheels.jpg', title: 'Replica Alloy Wheels', desc: 'Over 30,000 wheels in stock, full range car models, you can choose directly based on brand or size' },
+    { img: 'https://wheelshome.com/wp-content/uploads/2022/02/1-Replica-Alloy-wheels.jpg', title: '1Replica Alloy Wheels Replica Alloy Wheels', desc: 'Over 30,000 wheels in stock, full range car models, you can choose directly based on brand or size' },
+    { img: 'https://wheelshome.com/wp-content/uploads/2022/02/1-Replica-Alloy-wheels.jpg', title: '2Replica Alloy Wheels', desc: 'Over 30,000 wheels in stock, full range car models, you can choose directly based on brand or size' },
+    { img: 'https://wheelshome.com/wp-content/uploads/2022/02/1-Replica-Alloy-wheels.jpg', title: '3Replica Alloy Wheels', desc: 'Over 30,000 wheels in stock, full range car models, you can choose directly based on brand or size' },
+    { img: 'https://wheelshome.com/wp-content/uploads/2022/02/1-Replica-Alloy-wheels.jpg', title: '4Replica Alloy Wheels', desc: 'Over 30,000 wheels in stock, full range car models, you can choose directly based on brand or size' },
+    { img: 'https://wheelshome.com/wp-content/uploads/2022/02/1-Replica-Alloy-wheels.jpg', title: '5Replica Alloy Wheels', desc: 'Over 30,000 wheels in stock, full range car models, you can choose directly based on brand or size' },
+    { img: 'https://wheelshome.com/wp-content/uploads/2022/02/1-Replica-Alloy-wheels.jpg', title: '6Replica Alloy Wheels', desc: 'Over 30,000 wheels in stock, full range car models, you can choose directly based on brand or size' },
+    { img: 'https://wheelshome.com/wp-content/uploads/2022/02/1-Replica-Alloy-wheels.jpg', title: '7Replica Alloy Wheels', desc: 'Over 30,000 wheels in stock, full range car models, you can choose directly based on brand or size' },
+    { img: 'https://wheelshome.com/wp-content/uploads/2022/02/1-Replica-Alloy-wheels.jpg', title: '8Replica Alloy Wheels', desc: 'Over 30,000 wheels in stock, full range car models, you can choose directly based on brand or size' },
   ]
   return (
     <section className={styles.wrapper}>
