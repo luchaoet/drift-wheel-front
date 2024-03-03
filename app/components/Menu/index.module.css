@@ -5,6 +5,10 @@
 .fixed {
   background-color: #fff;
   height: 90px;
+  background-image: radial-gradient(transparent 1px, #fff 1px);
+  background-size: 4px 4px;
+  backdrop-filter: saturate(50%) blur(4px);
+  box-shadow: 0 2px 10px 0 rgba(36, 50, 66, .075);
 }
 
 .content {

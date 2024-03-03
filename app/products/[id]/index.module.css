@@ -1,0 +1,70 @@
+.wrapper {
+  padding: 100px 0;
+}
+
+.left {
+  flex-basis: 62.4%;
+}
+
+.left ul {
+  display: flex;
+}
+
+.left ul li {
+  width: 25%;
+}
+
+.left ul li+li {
+  margin-left: 26px;
+}
+
+.right {
+  margin-left: 42px;
+}
+
+.right h1 {
+  font-size: 28px;
+  color: #000000;
+  line-height: 40px;
+  margin-bottom: 28px;
+}
+
+.right ul li {
+  color: #666;
+  line-height: 24px;
+  font-size: 17px;
+}
+
+.right ul li::before {
+  content: '';
+  width: 10px;
+  height: 10px;
+  background: #AEAEAE;
+  border-radius: 5px;
+  margin-right: 12px;
+}
+
+.right ul li+li {
+  margin-top: 18px;
+}
+
+.buttons {
+  margin-top: 50px;
+}
+
+.buttons button {
+  height: 56px;
+  cursor: pointer;
+  border-radius: 28px;
+}
+
+.contact-btn {
+  background-color: #B8412A;
+  border: 0;
+}
+
+.add-btn {
+  margin-left: 20px;
+  border: 1px solid #B8412A;
+  background-color: #fff;
+}
