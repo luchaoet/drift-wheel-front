@@ -20,7 +20,7 @@
   height: 60px;
 }
 
-.active {
+.active>a {
   color: #c8351c !important;
 }
 
@@ -46,9 +46,12 @@
 }
 
 .menu {
-
   display: none;
   align-items: center;
+}
+
+.menu>li:hover>a {
+  color: #c8351c !important;
 }
 
 @media only screen and (min-width: 1150px) {

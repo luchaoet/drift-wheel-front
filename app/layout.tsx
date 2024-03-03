@@ -5,7 +5,6 @@ import Copyright from './components/Copyright'
 import Footer from './components/Footer'
 import { ConfigProvider } from 'antd'
 import enUS from 'antd/locale/en_US';
-// import useRem from './utils/useRem'
 
 import "./globals.css";
 import '@luchao/base-css';
@@ -17,11 +16,16 @@ export const metadata: Metadata = {
   description: "China MONOBLOCK FORGED manufacturers and  one peice forged wheels suppliers. Welcome to import quality MONOBLOCK FORGED at competitive price from our factory here.",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  let data = []
+  try {
+    const res = await fetch("https://api.solinkup.com/console/connector/notInMeta/list?connectorScope=all&versionType=current&excludeHidden=true&connectorTag=oa").then(res => res.json());
+    data = res.data
+  } catch (error) { }
 
   return (
     <ConfigProvider
@@ -34,7 +38,7 @@ export default function RootLayout({
     >
       <html lang="en">
         <body>
-          <Menu />
+          <Menu data={data} />
           {children}
           <Footer />
           <Copyright />

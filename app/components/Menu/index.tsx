@@ -4,6 +4,7 @@ import classnames from "classnames";
 import Link from 'next/link'
 import { SearchOutlined } from '@ant-design/icons'
 import MobileMenu from '../MobileMenu'
+import ChildrenMenu from '../ChildrenMenu'
 import { usePathname } from 'next/navigation'
 
 function Menu(props: any) {
@@ -52,20 +53,27 @@ function Menu(props: any) {
       ]
     },
   ]
+
+  console.log(1, props.data)
+
   const pathname = usePathname()
   return (
     <div className={classnames(styles['height-90'], 'g-w-100per')}>
       <div className={classnames(styles.fixed, 'g-p-f g-w-100per g-ai-c g-zi-99')}>
-        <div className={classnames(styles.content, 'g-jc-sb-ai-c')}>
+        <div className={classnames(styles.content, 'g-jc-sb-ai-c g-h-100per')}>
           <img src="/images/section-04.png" alt="logo" />
-          <ul className={classnames(styles.menu)}>
+          <ul className={classnames(styles.menu, 'g-h-100per')}>
             {
               menu.map((item, index) => (
                 <li
                   key={index}
-                  className={classnames('g-p-lr-14 g-c-p g-c-b g-fw-b', { [styles.active]: pathname === `${item.href}` })}
+                  className={classnames('g-h-100per g-p-lr-14 g-c-p g-c-b g-fw-b g-ai-c g-fs-0', { [styles.active]: pathname === `${item.href}` })}
                 >
-                  <Link href={item.href}>{item.name}</Link>
+                  {
+                    item.children?.length
+                      ? <ChildrenMenu data={item} />
+                      : <Link className='g-t-i g-h-100per g-ai-c' href={item.href}>{item.name}</Link>
+                  }
                 </li>
               ))
             }
