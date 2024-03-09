@@ -1,0 +1,25 @@
+{
+  "title": "Centerbore",
+  "id": 646760,
+  "desc": "",
+  "time": "",
+  "image": "//img.hisupplier.com/var/userImages/2012-12/24/145928172_240.jpg",
+  "content": [
+    {
+      "type": "image",
+      "value": "//img.hisupplier.com/var/userImages/2012-12/24/145928172_s.jpg",
+      "style": {
+        "width": "40%",
+        "minWidth": "400px"
+      }
+    },
+    {
+      "type": "text",
+      "value": "The centerbore (or C.B. in short) of a wheel is the machined opening on the back of the wheel that centers the wheel properly on the hub of a vehicle. This hole is machined to exactly match the hub so the wheels are precisely positioned as the lug hardware is torqued down. Keeping the wheel precisely centered on the hub when it is mounted will minimize the chance of a vibration. Some wheels are vehicle model specific and will come from the factory with a bore machined to match that vehicle. Some wheels are designed to fit multiple vehicle models and will use a centering ring system to reduce the bore size to match the hubs of different vehicles. These rings keep the wheel precisely positioned as the lug hardware is torqued down."
+    },
+    {
+      "type": "text",
+      "value": "Some wheels are non-hub centric by design. These are known as lug centric wheels. With these wheels it is critical to torque the lug hardware with the vehicle on jack stands, off the ground. This allows the nuts or bolts to center the wheel and torque down without the weight of the vehicle pushing them off center."
+    }
+  ]
+}

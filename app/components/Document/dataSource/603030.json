@@ -1,0 +1,55 @@
+{
+  "title": "Bolt Pattern",
+  "id": 603030,
+  "desc": "",
+  "time": "",
+  "image": "//img.hisupplier.com/var/userImages/2012-12/24/145758603_240.jpg",
+  "content": [
+    {
+      "type": "image",
+      "value": "//img.hisupplier.com/var/userImages/2012-12/24/145758603_s.jpg",
+      "style": {
+        "width": "40%",
+        "minWidth": "400px"
+      }
+    },
+    {
+      "type": "text",
+      "value": "Bolt pattern or more commonly known as P.C.D (pitch circle diameter)is the diameter of an imaginary circle formed by the centers of the wheel lugs."
+    },
+    {
+      "type": "text",
+      "value": "Bolt patterns can be 4-, 5-, 6-, or 8-lug holes. A bolt circle of 4x100 would indicate a 4-lug pattern on a circle with a diameter of 100mm."
+    },
+    {
+      "type": "text",
+      "value": "The diagram below shows the proper method of measuring bolt patterns of plural number lug bolts and odd number lug bolts."
+    },
+    {
+      "type": "image",
+      "value": "http://img.hisupplier.com/var/userImages/2012-06%2F27%2F153533115827.gif",
+      "style": {
+        "width": "200px"
+      }
+    },
+    {
+      "type": "image",
+      "value": "http://img.hisupplier.com/var/userImages/2012-06%2F27%2F153549362144.gif",
+      "style": {
+        "width": "200px"
+      }
+    },
+    {
+      "type": "image",
+      "value": "http://img.hisupplier.com/var/userImages/2012-06%2F27%2F154521946667.jpg",
+      "style": {
+        "width": "40%",
+        "minWidth": "400px"
+      }
+    },
+    {
+      "type": "text",
+      "value": "Bolt pattern is one of the most important data for the wheel fitment. When you install a wheel on a car, the first thing you have to check the wheel P.C.D.. Different car has different P.C.D., a Mercedes-Benz usually is in P.C.D. 5-100 while BMW is 5-120, but this is not fixed. Mercedes G550 is an exception, it is in P.C.D. 5-130. Land rover freelander is 5-114.3, ranger rover is 5-120, evoque is 5-108 and defender is 5-165.1. So when purchasing wheels, be carefull about the bolt patterns."
+    }
+  ]
+}

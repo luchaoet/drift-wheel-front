@@ -1,0 +1,16 @@
+.bc-f5f5f5 {
+  background-color: #f5f5f5;
+}
+
+.article h2 {
+  font-size: 36px;
+}
+
+.article button {
+  border: 0;
+  height: 46px;
+}
+
+.article+.article {
+  margin-top: 40px;
+}

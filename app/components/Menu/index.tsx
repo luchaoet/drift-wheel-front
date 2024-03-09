@@ -6,8 +6,9 @@ import { SearchOutlined } from '@ant-design/icons'
 import MobileMenu from '../MobileMenu'
 import ChildrenMenu from '../ChildrenMenu'
 import { usePathname } from 'next/navigation'
+import Router from 'next/router';
 
-function Menu(props: any) {
+function Menu() {
   const menu = [
     { href: '/', name: 'Home' },
     {
@@ -47,16 +48,24 @@ function Menu(props: any) {
     { href: '/company-activities', name: 'Company Activities' },
     {
       href: '', name: 'More', children: [
-        { href: '', name: 'Dragon Boat Festival' },
-        { href: '', name: 'Labor Day on May 1' },
-        { href: '', name: 'Wheel Tech' },
+        { href: '/doc/763733', name: 'Dragon Boat Festival' },
+        { href: '/doc/758012', name: 'Labor Day on May 1' },
+        { href: '/wheel-tech', name: 'Wheel Tech' },
       ]
-    },
+    }
   ]
 
-  console.log(1, props.data)
 
   const pathname = usePathname()
+
+  function isActive({ href }: any) {
+    if (href === '/') {
+      return href === pathname
+    } else {
+      return pathname.indexOf(href) === 0
+    }
+  }
+
   return (
     <section className={classnames(styles['height-90'], 'g-w-100per')}>
       <div className={classnames(styles.fixed, 'g-p-f g-w-100per g-ai-c g-zi-99')}>
@@ -67,12 +76,12 @@ function Menu(props: any) {
               menu.map((item, index) => (
                 <li
                   key={index}
-                  className={classnames('g-h-100per g-p-lr-14 g-c-p g-c-b g-fw-b g-ai-c g-fs-0', { [styles.active]: pathname === `${item.href}` })}
+                  className={classnames('g-h-100per g-p-lr-14 g-c-p g-c-b g-fw-b g-ai-c g-fs-0', { [styles.active]: isActive(item) })}
                 >
                   {
                     item.children?.length
                       ? <ChildrenMenu data={item} />
-                      : <Link className='g-t-i g-h-100per g-ai-c' href={item.href}>{item.name}</Link>
+                      : <Link className={classnames('g-t-i g-h-100per g-ai-c')} href={item.href}>{item.name}</Link>
                   }
                 </li>
               ))

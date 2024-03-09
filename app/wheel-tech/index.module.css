@@ -1,0 +1,9 @@
+.wrapper ul {
+  grid-gap: 40px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(208px, 1fr));
+}
+
+.wrapper ul a:hover {
+  text-decoration: underline;
+}

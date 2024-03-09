@@ -1,0 +1,69 @@
+{
+  "title": "Alloy vs. Steel wheels, which one will be your choice?",
+  "id": 596235,
+  "desc": "",
+  "time": "",
+  "image": "//img.hisupplier.com/var/userImages/2012-12/24/145534631_240.jpg",
+  "content": [
+    {
+      "type": "image",
+      "value": "//img.hisupplier.com/var/userImages/2012-12/24/145534631_s.jpg",
+      "style": {
+        "width": "40%",
+        "minWidth": "400px"
+      }
+    },
+    {
+      "type": "text",
+      "value": "When purchasing wheels, the first thing you have to think about the wheel material. Which type of wheel are you going to buy, aluminum alloy wheel or steel wheel? It is known that for a passenger car usually we use alloy wheels while for a bus or trailer usually we use steel wheel, but why is that? To answer this question, you have to get the knowledge of different features of these two types of wheels."
+    },
+    {
+      "type": "title",
+      "value": "Alloy Wheels"
+    },
+    {
+      "type": "text",
+      "value": "Enhance the look of your vehicle"
+    },
+    {
+      "type": "text",
+      "value": "Are manufactured to precise standards to meet exact fitment and performance needs"
+    },
+    {
+      "type": "text",
+      "value": "Weigh less than steel wheels and have superior strength"
+    },
+    {
+      "type": "text",
+      "value": "May be the preferred option for your vehicle based on fitment requirements"
+    },
+    {
+      "type": "text",
+      "value": "Will allow for better brake clearance (depending on wheel style and brake components installed)"
+    },
+    {
+      "type": "text",
+      "value": "Require proper maintenance as finish damage may result in the harshest climates where salt and sand are routinely used"
+    },
+    {
+      "type": "title",
+      "value": "Steel Wheels"
+    },
+    {
+      "type": "text",
+      "value": "Meet the basic needs of drivers without the additional cost of an alloy wheel"
+    },
+    {
+      "type": "text",
+      "value": "Typically available in black or silver finish depending on the application"
+    },
+    {
+      "type": "text",
+      "value": "Basic styling can often be updated with wheel covers"
+    },
+    {
+      "type": "text",
+      "value": "Cost less than alloy wheels due to ease of manufacturing and lower material costs"
+    }
+  ]
+}

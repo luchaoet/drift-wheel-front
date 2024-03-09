@@ -3,3 +3,27 @@
   max-width: 1170px;
   margin: 0 auto;
 }
+
+.g-p-t-50 {
+  padding-top: 50px;
+}
+
+.g-p-b-50 {
+  padding-bottom: 50px;
+}
+
+.g-bc-c8351c {
+  background-color: #c8351c;
+}
+
+.g-c-c8351c {
+  color: #c8351c;
+}
+
+.g-bc-f5f5f5 {
+  background-color: #f5f5f5;
+}
+
+.g-c-999 {
+  color: #999;
+}

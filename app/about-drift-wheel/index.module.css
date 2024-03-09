@@ -1,0 +1,17 @@
+.banner {
+  color: #fff;
+  line-height: 80px;
+  font-size: 50px;
+  font-weight: 800;
+}
+
+.content {
+  font-weight: 400;
+  font-size: 18px;
+  color: #000000;
+  line-height: 38px;
+}
+
+.content p+p {
+  margin-top: 40px;
+}

@@ -8,6 +8,7 @@ import { useState } from 'react';
 function ChildrenRender(props: any) {
   const [open, setOpen] = useState(false)
   const data: any = props.data;
+  const toggle = props.toggle;
   return (
     <>
       <div className="g-w-100per">
@@ -24,7 +25,7 @@ function ChildrenRender(props: any) {
             {
               data.children.map((d: any, i: number) => (
                 <li key={i}>
-                  <Link href={d.href} style={{ height: 48 }} className='g-w-100per g-h-100per g-ai-c'>{d.name}</Link>
+                  <Link href={d.href} style={{ height: 48 }} className='g-w-100per g-h-100per g-ai-c' onClick={toggle}>{d.name}</Link>
                   {
                     d.children && (
                       <ul className='g-p-l-20'>
@@ -76,7 +77,7 @@ function MobileMenu(props: any) {
                 <li key={index} className={classnames({ [styles['has-children']]: hasChildren, 'g-t-i': !hasChildren }, 'g-c-p g-w-100per g-ai-c')}>
                   {
                     hasChildren
-                      ? <ChildrenRender data={item} />
+                      ? <ChildrenRender data={item} toggle={toggle} />
                       : <Link onClick={toggle} className='g-w-100per g-h-100per g-ai-c' href={item.href}>{item.name}</Link>
                   }
                 </li>

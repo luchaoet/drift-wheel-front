@@ -1,0 +1,74 @@
+{
+  "title": "Wheel Offsets or E.T.",
+  "id": 705199,
+  "desc": "",
+  "time": "",
+  "image": "//img.hisupplier.com/var/userImages/2013-08/01/115746446_240.jpg",
+  "content": [
+    {
+      "type": "image",
+      "value": "//img.hisupplier.com/var/userImages/2013-08/01/115746446_s.jpg",
+      "style": {
+        "width": "40%",
+        "minWidth": "400px"
+      }
+    },
+    {
+      "type": "text",
+      "value": "The offset of a wheel is what locates the tire and wheel assembly in relation to the suspension. More specifically, it is the measured distance between the hub mounting surface and the center line of the rim. Below is an explanation of the various types of offsets which are pictured in the above graphic."
+    },
+    {
+      "type": "title",
+      "value": "Positive Offset"
+    },
+    {
+      "type": "image",
+      "value": "http://img.hisupplier.com/var/userImages/2013-08%2F01%2F115704136481.gif",
+      "style": {
+        "width": "200px"
+      }
+    },
+    {
+      "type": "text",
+      "value": "A positive offset occurs when the hub mounting surface is on the street side (the side you see) of the center line of the rim. Most factory rims will have this type of offset."
+    },
+    {
+      "type": "title",
+      "value": "Zero Offset"
+    },
+    {
+      "type": "image",
+      "value": "http://img.hisupplier.com/var/userImages/2013-08%2F01%2F115717551190.gif",
+      "style": {
+        "width": "200px"
+      }
+    },
+    {
+      "type": "text",
+      "value": "When the hub mounting surface is centered within the rim, it is known as a zero offset."
+    },
+    {
+      "type": "title",
+      "value": "Negative Offset"
+    },
+    {
+      "type": "image",
+      "value": "http://img.hisupplier.com/var/userImages/2013-08%2F01%2F115725850129.gif",
+      "style": {
+        "width": "200px"
+      }
+    },
+    {
+      "type": "text",
+      "value": "If the hub mounting surface is on the brake side of the center line of the rim, it is considered a negative offset or \"deep dish\"."
+    },
+    {
+      "type": "text",
+      "value": "Note that extensive negative offset can potentially cause increased steering wheel kick-back and place additional stresses on the vehicle's entire suspension"
+    },
+    {
+      "type": "text",
+      "value": "Please feel free to drop by or phone a store near you if you require additional facts about wheel offsets."
+    }
+  ]
+}
