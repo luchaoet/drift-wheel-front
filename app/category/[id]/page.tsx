@@ -9,11 +9,16 @@ async function Page({ params }: any) {
     return res.data || [];
   }
   const getProductPage = async () => {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API}/product/page?queryKey=category_id&queryValue=${params.id}&pageSize=1000&pageIndex=1`).then(res => res.json())
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API}/product/page?queryKey=category_id&queryValue=${params.id}&pageSize=999&pageIndex=1`).then(res => res.json())
     return res.data || [];
   }
 
-  const [category, productPage] = await Promise.all([getCategoryList(), getProductPage()])
+  const getBasket = async () => {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API}/product/page?queryKey=in_basket&pageSize=999&pageIndex=1`).then(res => res.json())
+    return res.data || [];
+  }
+
+  const [category, productPage, basket] = await Promise.all([getCategoryList(), getProductPage(), getBasket()])
 
   function getCurrentCategory(data: any[], id: string) {
     let temp = {
@@ -80,7 +85,7 @@ async function Page({ params }: any) {
               <dt className="g-fs-32 g-lh-40">{categoryName}</dt>
               <dd className="g-fs-18 g-lh-24 g-m-t-18">{categoryDesc}</dd>
             </dl>
-            <ProductsList data={productPage} />
+            <ProductsList data={productPage} basket={basket} />
           </div>
 
         </div>
