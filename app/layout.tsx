@@ -23,7 +23,7 @@ export default async function RootLayout({
 }>) {
   let data = []
   try {
-    const res = await fetch("https://api.solinkup.com/console/connector/notInMeta/list?connectorScope=all&versionType=current&excludeHidden=true&connectorTag=oa").then(res => res.json());
+    const res = await fetch(process.env.NEXT_PUBLIC_API + "/category/list").then(res => res.json());
     data = res.data
   } catch (error) { }
 

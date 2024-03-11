@@ -1,0 +1,18 @@
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(308px, 1fr));
+}
+
+.wrapper li p {
+  font-size: 16px;
+  line-height: 22px;
+  color: #2B54BD;
+}
+
+.wrapper li p:hover {
+  text-decoration: underline;
+}
+
+.wrapper li div img {
+  width: 28px;
+}

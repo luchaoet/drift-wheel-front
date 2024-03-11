@@ -1,0 +1,39 @@
+.left {
+  flex-basis: 40%;
+  max-width: 400px;
+  /* background: linear-gradient(270deg, #FEFEFE 0%, #E8E8E8 100%, #CCCCD4 100%); */
+  /* background-color: #CCCCD4; */
+  padding: 38px 40px;
+  flex-shrink: 0;
+}
+
+.left>p {
+  font-size: 28px;
+  color: #DD3D1E;
+  line-height: 38px;
+
+}
+
+.left dd+dd {
+  margin-top: 10px;
+}
+
+.right {
+  flex-grow: 1;
+  padding: 38px 50px;
+}
+
+.right dl {
+  margin-bottom: 60px;
+}
+
+.is-active a {
+  color: #DD3D1E;
+}
+
+.banner {
+  color: #fff;
+  line-height: 80px;
+  font-size: 50px;
+  font-weight: 800;
+}
