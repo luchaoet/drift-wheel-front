@@ -9,12 +9,12 @@ async function Page({ params }: any) {
     return res.data || [];
   }
   const getProductPage = async () => {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API}/product/page?queryKey=category_id&queryValue=${params.id}&pageSize=999&pageIndex=1`).then(res => res.json())
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API}/product/page?queryKey=category_id&queryValue=${params.id}&pageSize=100&pageIndex=1`).then(res => res.json())
     return res.data || [];
   }
 
   const getBasket = async () => {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API}/product/page?queryKey=in_basket&pageSize=999&pageIndex=1`).then(res => res.json())
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API}/product/page?queryKey=in_basket&pageSize=50&pageIndex=1`).then(res => res.json())
     return res.data || [];
   }
 

@@ -1,15 +1,14 @@
 import type { Metadata } from "next";
-// import { Inter } from "next/font/google";
+import Basket from "./components/Basket";
 import Menu from './components/Menu'
 import Copyright from './components/Copyright'
 import Footer from './components/Footer'
 import { ConfigProvider } from 'antd'
 import enUS from 'antd/locale/en_US';
+import { AntdRegistry } from '@ant-design/nextjs-registry';
 
 import "./globals.css";
 import '@luchao/base-css';
-
-// const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "China MONOBLOCK FORGED Manufacturer, one peice forged wheels Supplier and Factory",
@@ -39,9 +38,10 @@ export default async function RootLayout({
       <html lang="en">
         <body>
           <Menu data={data} />
-          {children}
+          <AntdRegistry>{children}</AntdRegistry>
           <Footer />
           <Copyright />
+          <Basket />
         </body>
       </html>
     </ConfigProvider>

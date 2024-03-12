@@ -3,21 +3,33 @@ import styles from './index.module.css'
 import classnames from "classnames";
 import Link from 'next/link';
 import { Image } from 'antd'
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 
-function App({ data, className, basket = [] }: any) {
+function App({ data, className, basket = [], basketButton = true }: any) {
   const [inbasket, setBasket] = useState(basket)
-  const inBasket = (productId: string) => {
-    return !!inbasket.find((item: any) => item.productId === productId)
+
+  const inBasket = useCallback((productId: string) => {
+    return !!inbasket?.find?.((item: any) => item.productId === productId)
+  }, [inbasket])
+
+  const handleOutBasket = (id: string) => {
+    fetch(`/api/basket/remove`, {
+      method: 'post',
+      body: JSON.stringify([id]),
+    }).then(res => res.json()).then((res: any) => {
+      setBasket(res.data.products)
+    })
   }
-  const outBasket = (id: string) => {
+
+  const handleInBasket = (id: string) => {
     fetch(`/api/basket/add`, {
       method: 'post',
       body: JSON.stringify([id]),
     }).then(res => res.json()).then((res: any) => {
-      setBasket(res.data)
+      setBasket(res.data.products)
     })
   }
+
   return (
     <ul className={classnames(className, styles.wrapper, 'g-w-100per')}>
       {
@@ -25,8 +37,7 @@ function App({ data, className, basket = [] }: any) {
           const src = process.env.NEXT_PUBLIC_IMG + item?.imgList?.bigPic?.[0];
           return (
             <li key={index}>
-              <Link className='g-d-b g-p-12' href={`/products/${item.productId}`}>
-                {/* <img src={src} alt="" className='g-w-100per g-m-b-12' /> */}
+              <Link className='g-d-b g-p-t-12 g-p-l-12 g-p-r-12' href={`/products/${item.productId}`}>
                 <Image
                   src={src}
                   alt=""
@@ -36,12 +47,14 @@ function App({ data, className, basket = [] }: any) {
                 />
                 <p className='g-m-b-12'>{item.title || item.name}</p>
               </Link>
-              <div className='g-jc-sb-ai-c'>
+              <div className='g-jc-sb-ai-c g-p-lr-12 g-p-b-12'>
                 <span className='g-fs-16 g-c-666 g-fw-b'>{item.model}</span>
                 {
-                  inBasket(item.productId)
-                    ? <img className='g-c-p' src="/images/inbasket.png" alt="basket" onClick={() => outBasket(item.productId)} />
-                    : <img src="/images/basket.png" alt="basket" />
+                  basketButton ?
+                    inBasket(item.productId)
+                      ? <img className='g-c-p' src="/images/inbasket.png" alt="basket" onClick={() => handleOutBasket(item.productId)} />
+                      : <img className='g-c-p' src="/images/basket.png" alt="basket" onClick={() => handleInBasket(item.productId)} />
+                    : null
                 }
 
               </div>

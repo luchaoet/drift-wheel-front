@@ -23,38 +23,9 @@ function Menu({ data }: any) {
     { href: '/', name: 'Home' },
     {
       href: '', name: 'Products', children: data
-      // children: [
-      //   { href: '', name: 'Wheel & Tire Accessories And Parts' },
-      //   {
-      //     href: '', name: 'Forged Wheels', children: [
-      //       { href: '', name: 'MONOBLOCK FORGED' },
-      //       { href: '', name: 'DEEP CONCAVE 3PC' },
-      //     ]
-      //   },
-      //   {
-      //     href: '', name: 'Light Alloy Wheels', children: [
-      //       { href: '', name: 'Custom Car Wheels' },
-      //       { href: '', name: 'OEM Wheel' },
-      //     ]
-      //   },
-      //   {
-      //     href: '', name: 'Replica Wheel', children: [
-      //       { href: '', name: 'Hyundai Wheels Rims' },
-      //       { href: '', name: 'Mercedes-Benz Wheels' },
-      //       { href: '', name: 'Audi Rims Wheels' },
-      //       { href: '', name: 'VW Rims Wheels' },
-      //       { href: '', name: 'BMW Alloy Wheels' },
-      //       { href: '', name: 'Porsche Alloy Wheels' },
-      //       { href: '', name: 'Land Rover Wheels' },
-      //       { href: '', name: 'Cadillac Chrome Wheels' },
-      //       { href: '', name: 'Chevrolet Rally Wheels' },
-      //       { href: '', name: 'Jaguar Alloy Wheels' },
-      //     ]
-      //   },
-      // ]
     },
     { href: '/about-drift-wheel', name: 'About Us' },
-    { href: '/contact-us', name: 'Contact Us' },
+    { href: '/inquiry', name: 'Contact Us' },
     { href: '/blog', name: 'Blog' },
     { href: '/company-activities', name: 'Company Activities' },
     {
@@ -69,11 +40,7 @@ function Menu({ data }: any) {
   const pathname = usePathname()
 
   function isActive({ href }: any) {
-    if (href === '/') {
-      return href === pathname
-    } else {
-      return pathname.indexOf(href) === 0
-    }
+    return href === pathname
   }
 
   return (

@@ -1,0 +1,41 @@
+.title {
+  font-weight: 800;
+  font-size: 32px;
+  color: #000000;
+  line-height: 44px;
+  padding-bottom: 46px;
+}
+
+.left {
+  flex-grow: 1;
+  padding-right: 150px;
+  min-width: 0;
+}
+
+.right {
+  background-color: #B8412A;
+  flex-basis: 400px;
+  flex-shrink: 0;
+}
+
+.right p {
+  padding: 50px 0 50px 32px;
+  font-weight: 500;
+  font-size: 22px;
+  color: #FFFFFF;
+  line-height: 30px;
+  border-bottom: 1px solid #FFFFFF;
+}
+
+.right ul {
+  padding: 85px 32px 50px;
+  color: #fff;
+}
+
+.right ul li+li {
+  margin-top: 33px;
+}
+
+.right ul li img {
+  width: 21px;
+}

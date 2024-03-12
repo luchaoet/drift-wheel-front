@@ -1,0 +1,33 @@
+.wrapper textarea {
+  width: 100%;
+  overflow-y: hidden;
+  resize: none;
+  height: 235px;
+  min-height: 76px;
+  max-height: 120px;
+  padding: 12px 11px 4px 46px;
+  border: 1px solid #d9d9d9;
+  border-radius: 6px;
+  color: rgba(0, 0, 0, 0.88);
+  font-size: 14px;
+}
+
+.wrapper textarea:hover {
+  border-color: #d45b3f;
+}
+
+.wrapper textarea:focus {
+  border-color: #c8351c;
+  box-shadow: 0 0 0 2px rgba(255, 88, 5, 0.06);
+  outline: 0;
+  background-color: #ffffff;
+}
+
+.wrapper img {
+  top: 10px;
+  left: 14px;
+}
+
+.error {
+  border-color: #d45b3f !important;
+}

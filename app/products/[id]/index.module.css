@@ -52,10 +52,15 @@
   margin-top: 50px;
 }
 
-.buttons button {
+.buttons button,
+.buttons a {
   height: 56px;
   cursor: pointer;
   border-radius: 28px;
+}
+
+.buttons a:hover {
+  color: #fff;
 }
 
 .contact-btn {

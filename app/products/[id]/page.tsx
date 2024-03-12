@@ -3,6 +3,7 @@ import styles from './index.module.css'
 import classnames from "classnames";
 import { Carousel, Image } from 'antd'
 import { useEffect, useState, useRef, useMemo } from 'react'
+import Link from 'next/link'
 
 function Page({ params }: any) {
   const [basket, setBasket] = useState([]);
@@ -66,8 +67,6 @@ function Page({ params }: any) {
     carouselRef?.current.goTo(index)
   }
 
-
-
   return (
     <section className={classnames(styles.wrapper)}>
       <div className="container-auto g-d-f">
@@ -118,10 +117,10 @@ function Page({ params }: any) {
             }
           </ul>
           <p className={classnames(styles.buttons, 'g-d-f')}>
-            <button className={classnames(styles['contact-btn'], 'g-fg-1 g-jc-ai-c g-c-w')}>
+            <Link href={`/inquiry?id=${params.id}`} className={classnames(styles['contact-btn'], 'g-fg-1 g-jc-ai-c g-c-w')}>
               <img style={{ width: 26 }} src='/images/contact.png' alt="" />
               <span className='g-m-l-12'>Contact Now</span>
-            </button>
+            </Link>
             <button className={classnames(styles['add-btn'], 'g-fg-1 g-jc-ai-c g-c-b')} onClick={addBasket}>
               {
                 inBasket
