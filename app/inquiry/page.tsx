@@ -109,7 +109,7 @@ function Page(props: any) {
   return (
     <>
       <section>
-        <img src="/images/contact-banner.png" className='g-w-100per' />
+        <img src="/images/contact-banner.png" className='g-w-100per g-banner-cover' />
       </section>
       {
         !!data.length &&
@@ -122,7 +122,7 @@ function Page(props: any) {
       }
       <section className='g-p-b-50'>
         <div className='container-auto'>
-          <div className='g-p-t-50 g-d-f'>
+          <div className={classnames('g-p-t-50 g-d-f', styles.contact)}>
             <div className={classnames(styles.left)}>
               <p className={classnames(styles.title)}>Contact Us</p>
               <Row>

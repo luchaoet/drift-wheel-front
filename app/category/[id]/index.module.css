@@ -21,6 +21,7 @@
 .right {
   flex-grow: 1;
   padding: 38px 50px;
+  min-width: 0;
 }
 
 .right dl {
@@ -31,9 +32,41 @@
   color: #DD3D1E;
 }
 
-.banner {
+.banner h1 {
   color: #fff;
   line-height: 80px;
   font-size: 50px;
   font-weight: 800;
+}
+
+@media only screen and (max-width: 900px) {
+  .banner h1 {
+    font-size: 40px;
+  }
+
+  .banner p {
+    font-size: 20px;
+  }
+
+  .container {
+    width: 100%;
+    padding: 0 20px;
+    margin: 0;
+  }
+
+  .left {
+    padding: 38px 20px;
+  }
+
+  .left p {
+    font-size: 24px;
+  }
+
+  .left dt {
+    font-size: 14px;
+  }
+
+  .right dt {
+    font-size: 24px;
+  }
 }

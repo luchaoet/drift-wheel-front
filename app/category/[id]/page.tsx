@@ -2,17 +2,30 @@ import classnames from "classnames";
 import styles from './index.module.css'
 import Link from "next/link";
 import ProductsList from '../../components/ProductsList'
+import { Empty } from "antd";
 
 async function Page({ params }: any) {
+  // 分类树
   const getCategoryList = async () => {
     const res = await fetch(`${process.env.NEXT_PUBLIC_API}/category/list`).then(res => res.json())
     return res.data || [];
   }
+  let searchKey = '';
+  // 列表 分类id or 搜索词
   const getProductPage = async () => {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API}/product/page?queryKey=category_id&queryValue=${params.id}&pageSize=100&pageIndex=1`).then(res => res.json())
-    return res.data || [];
+    if (params.id.indexOf('key') === 0) {
+      // 搜索词
+      const key = params.id.replace(/^key/, '');
+      searchKey = key;
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API}/product?queryKey=category_id&searchKey=${key}`).then(res => res.json())
+      return res.data || [];
+    } else {
+      // 分类id
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API}/product/page?queryKey=category_id&queryValue=${params.id}&pageSize=100&pageIndex=1`).then(res => res.json())
+      return res.data || [];
+    }
   }
-
+  // 购物车
   const getBasket = async () => {
     const res = await fetch(`${process.env.NEXT_PUBLIC_API}/product/page?queryKey=in_basket&pageSize=50&pageIndex=1`).then(res => res.json())
     return res.data || [];
@@ -46,16 +59,16 @@ async function Page({ params }: any) {
   return (
     <>
       <section className="g-p-r">
-        <img src="/images/category-banner.png" className='g-w-100per' />
+        <img src="/images/category-banner.png" className='g-w-100per g-banner-cover' />
         <div className="container-auto g-p-a g-t-0 g-r-0 g-b-0 g-l-0 g-d-f g-ai-c g-fw-w">
-          <div>
-            <h1 className={classnames(styles.banner)}>Ningbo Drift Wheel Co., Ltd.</h1>
+          <div className={classnames(styles.banner)}>
+            <h1>Ningbo Drift Wheel Co., Ltd.</h1>
             <p className="g-fs-26 g-c-w g-lh-36">21 INCH 1-PEICE FORGED WHEEL FOR RANGE ROVER FLOATING CAP DESIGN, China 21 INCH 1-PEICE FORGED WHEEL FOR RANGE ROVER FLOATING CAP DESIGN Manufacturer</p>
           </div>
         </div>
       </section>
       <section>
-        <div className="g-d-f container-auto">
+        <div className={classnames("g-d-f container-auto", styles.container)}>
           <div className={classnames(styles.left)}>
             <p>PRODUCT LIST</p>
             {
@@ -81,11 +94,35 @@ async function Page({ params }: any) {
             }
           </div>
           <div className={classnames(styles.right, 'g-p-t-38 g-c-b')}>
-            <dl>
-              <dt className="g-fs-32 g-lh-40">{categoryName}</dt>
-              <dd className="g-fs-18 g-lh-24 g-m-t-18">{categoryDesc}</dd>
-            </dl>
-            <ProductsList data={productPage} basket={basket} />
+            {
+              // 搜索展示 分有数据 无数据 提示
+              // 分类 显示分类名和分类描述
+              !!searchKey
+                ? productPage.length > 0 ? (
+                  <dl>
+                    <dt className="g-fs-32 g-lh-40">{`Results for ${searchKey}: ${productPage.length} Products`}</dt>
+                    <dd className="g-fs-18 g-lh-24 g-m-t-18">View more specifications {searchKey} for you</dd>
+                  </dl>
+                ) : (
+                  <dl>
+                    <dt className="g-fs-32 g-lh-40 g-c-c8351c">Sorry, no matching results were found for the keyword(s): {searchKey}</dt>
+                    <dd className="g-fs-18 g-lh-24 g-m-t-18 g-c-c8351c">Please check your keyword(s) spelling.</dd>
+                    <dd className="g-fs-18 g-lh-24 g-m-t-8 g-c-c8351c">Use more general keyword(s).</dd>
+                  </dl>
+                )
+                : (
+                  <dl>
+                    <dt className="g-fs-32 g-lh-40">{categoryName}</dt>
+                    <dd className="g-fs-18 g-lh-24 g-m-t-18">{categoryDesc}</dd>
+                  </dl>
+                )
+            }
+            {
+              !!productPage.length
+                ? <ProductsList data={productPage} basket={basket} />
+                : <Empty className="g-p-t-50" />
+            }
+
           </div>
 
         </div>

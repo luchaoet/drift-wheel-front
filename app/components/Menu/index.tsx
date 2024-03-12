@@ -5,11 +5,10 @@ import Link from 'next/link'
 import { SearchOutlined } from '@ant-design/icons'
 import MobileMenu from '../MobileMenu'
 import ChildrenMenu from '../ChildrenMenu'
-import { usePathname } from 'next/navigation'
-import Router from 'next/router';
+import { usePathname, useRouter } from 'next/navigation'
 
 function Menu({ data }: any) {
-  // console.log(data)
+  const router = useRouter();
   const handleMenuData = (d: any) => {
     for (const iterator of d) {
       iterator.href = '/category/' + iterator.categoryId
@@ -43,6 +42,12 @@ function Menu({ data }: any) {
     return href === pathname
   }
 
+  const handleKeyDown = (e: KeyboardEvent) => {
+    if (e.key === 'Enter' && e.target?.value) {
+      router.push(`/category/key${e.target.value}`)
+    }
+  }
+
   return (
     <section className={classnames(styles['height-90'], 'g-w-100per')}>
       <div className={classnames(styles.fixed, 'g-p-f g-w-100per g-ai-c g-zi-99')}>
@@ -64,7 +69,7 @@ function Menu({ data }: any) {
               ))
             }
             <li className={classnames(styles.search, 'g-p-r')}>
-              <input />
+              <input onKeyDown={handleKeyDown} />
               <SearchOutlined style={{ fontSize: 16 }} className={styles.icon} />
             </li>
           </ul>

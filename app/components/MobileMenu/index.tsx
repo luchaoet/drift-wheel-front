@@ -31,7 +31,9 @@ function ChildrenRender(props: any) {
                       <ul className='g-p-l-20'>
                         {
                           d.children.map((dc: any, idx: number) => (
-                            <li style={{ height: 32 }} key={idx} className='g-ai-c g-fs-14'>{dc.name}</li>
+                            <li style={{ height: 32 }} key={idx} className='g-ai-c g-fs-14'>
+                              <Link href={dc.href} onClick={toggle}>{dc.name}</Link>
+                            </li>
                           ))
                         }
                       </ul>

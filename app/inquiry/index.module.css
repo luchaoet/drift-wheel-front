@@ -39,3 +39,19 @@
 .right ul li img {
   width: 21px;
 }
+
+@media only screen and (max-width: 1000px) {
+  .contact {
+    flex-wrap: wrap;
+    flex-direction: column-reverse;
+  }
+
+  .left {
+    padding-right: 0;
+  }
+
+  .right {
+    flex-basis: 100%;
+    margin-bottom: 50px;
+  }
+}

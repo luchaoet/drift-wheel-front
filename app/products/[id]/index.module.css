@@ -73,3 +73,27 @@
   border: 1px solid #B8412A;
   background-color: #fff;
 }
+
+.productPhotos {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+}
+
+.description {
+  gap: 20px
+}
+
+.description dt {
+  height: 44px;
+  line-height: 44px;
+  border-bottom: 1px solid #E3E3E3;
+  font-weight: 600;
+}
+
+.description dd {
+  height: 44px;
+  line-height: 44px;
+  border-bottom: 1px solid #E3E3E3;
+  padding: 0 20px;
+}

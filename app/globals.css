@@ -16,6 +16,10 @@
   background-color: #c8351c;
 }
 
+.g-bc-f6f6f6 {
+  background-color: #f6f6f6;
+}
+
 .g-c-c8351c {
   color: #c8351c;
 }
@@ -38,4 +42,9 @@
 
 .g-fs-17 {
   font-size: 17px;
+}
+
+.g-banner-cover {
+  min-height: 250px;
+  object-fit: cover;
 }
