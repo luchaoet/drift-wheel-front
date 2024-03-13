@@ -12,6 +12,7 @@
     "@ant-design/nextjs-registry": "^1.0.0",
     "@luchao/base-css": "^5.0.0",
     "antd": "^5.13.2",
+    "body-parser": "^1.20.2",
     "classnames": "^2.5.1",
     "next": "14.1.0",
     "react": "^18",
@@ -19,6 +20,7 @@
     "sass": "^1.70.0"
   },
   "devDependencies": {
+    "@types/body-parser": "^1.19.5",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",

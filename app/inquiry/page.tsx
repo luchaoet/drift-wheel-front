@@ -12,10 +12,10 @@ function Page(props: any) {
   const [data, setData] = useState([])
   useEffect(() => {
     if (id) {
-      fetch('/api/product')
+      fetch('/api/product?productId=' + id)
         .then(res => res.json())
         .then(res => {
-          setData(res.data)
+          setData([res.data as never])
         })
     } else {
       fetch('/api/basket/get')
@@ -36,12 +36,17 @@ function Page(props: any) {
     { icon: '/images/icon-6.png', value: `Room 702,Yingsheng Mansion 456 Middle Tai'an Road , Yinzhou District (South CBD), Ningbo, Zhejiang, China (Mainland)/315199  ` },
   ]
 
-  const [fileList, setFileList] = useState([])
-
-  const handleChange = ({ fileList }: any) =>
-    setFileList(fileList);
-
   const [checked, setChecked] = useState(false);
+
+  const [form, setForm] = useState({ subject: 'I want to know more about your company', files: [] as any[] } as any);
+  const setFormData = (key: string, value: any) => {
+    const data = { ...form, [key]: value };
+    setForm(data);
+    setStatus({
+      ...status,
+      [key]: value ? null : 'error'
+    })
+  }
 
   const [status, setStatus] = useState({} as any);
   const checkStatus = () => {
@@ -62,15 +67,11 @@ function Page(props: any) {
     })
   }
 
-  const [form, setForm] = useState({ subject: 'I want to know more about your company' } as any);
-  const setFormData = (key: string, value: string) => {
-    const data = { ...form, [key]: value };
-    setForm(data);
-    setStatus({
-      ...status,
-      [key]: value ? null : 'error'
-    })
+  const handleChange = (e: any) => {
+    const files = e.target.files || {};
+    setFormData('files', Object.values(files));
   }
+
 
 
   const [loading, setLoading] = useState(false);
@@ -82,19 +83,31 @@ function Page(props: any) {
       productId: item.productId,
       brandName: item.brandName,
     }))
+
+    const { files, ...others } = form;
+
+    const formData = new FormData();
+    const obj = {
+      ...others,
+      products: JSON.stringify(products)
+    }
+    Object.keys(obj).forEach(key => {
+      formData.append(key, obj[key])
+    })
+    files.forEach((f: any) => {
+      formData.append('files[]', f)
+    });
+
     fetch('/api/sendMail', {
       method: 'post',
-      body: JSON.stringify({
-        ...form,
-        products
-      }),
+      body: formData,
     })
       .then(res => res.json())
       .then((res) => {
-        if (res.error) {
-          message.error(res.message)
-        } else {
+        if (res.errorCode === '__200OK') {
           message.success('Email Sent Successfully')
+        } else {
+          message.error(res.message || res.errorMsg)
         }
       }).catch(() => {
         message.error('Email Sending Failed')
@@ -157,19 +170,19 @@ function Page(props: any) {
               {
                 checked &&
                 <div>
-                  <Upload
-                    action="/file/upload"
+                  {/* <Upload
+                    action="/api/uploadFile"
                     listType="picture-card"
-                    fileList={fileList}
+                    multiple
+                    fileList={form.files}
                     onChange={handleChange}
                   >
-                    {fileList.length >= 1 ? null : (
-                      <button style={{ border: 0, background: 'none' }} type="button">
-                        <PlusOutlined />
-                        <div style={{ marginTop: 8 }}>Upload</div>
-                      </button>
-                    )}
-                  </Upload>
+                    <button style={{ border: 0, background: 'none' }} type="button">
+                      <PlusOutlined />
+                      <div style={{ marginTop: 8 }}>Upload</div>
+                    </button>
+                  </Upload> */}
+                  <input type="file" multiple onChange={handleChange}></input>
                   <p className='g-c-999 g-lh-16 g-fs-12'>Format & Size-：jpg, jpeg, gif, txt, doc, xls or pdf format； Max. size of 500KB</p>
                 </div>
               }
