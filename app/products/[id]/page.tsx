@@ -17,7 +17,7 @@ function Page({ params }: any) {
   const [relatedProduct, setRelatedProduct] = useState([] as any);
   useEffect(() => {
     if (categoryId) {
-      fetch('/api/product/page?categoryId=' + categoryId)
+      fetch(`/api/product/page?queryKey=category_id&queryValue=${categoryId}`)
         .then(res => res.json()).then((res) => {
           const data = (res.data || [])
             // .filter((item: any) => item.productId !== data.productId)
