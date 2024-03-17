@@ -1,6 +1,7 @@
 'use client'
 import styles from './index.module.css'
 import classnames from "classnames";
+import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react'
 
 function App(props: any) {
@@ -40,11 +41,13 @@ function App(props: any) {
             <ul key={v} className='g-d-f' style={{ 'animationDuration': speed * dataSource.length + 'ms' }}>
               {
                 dataSource.map((item: any, index: number) => (
-                  <li key={index} className='g-ai-c g-fd-c g-bs-cb g-c-p'>
-                    <p className='g-w-100per g-jc-ai-c'>
-                      <img className='g-w-100per' src={item.img} alt="" />
-                    </p>
-                    <span className='g-ta-c g-e-2 g-m-t-10'>{item.title}</span>
+                  <li key={index}>
+                    <Link href={`/products/${item.productId || ''}`} className='g-ai-c g-fd-c g-bs-cb'>
+                      <p className='g-w-100per g-jc-ai-c'>
+                        <img className='g-w-100per' src={item.img} alt="" />
+                      </p>
+                      <span className='g-ta-c g-e-2 g-m-t-10'>{item.title}</span>
+                    </Link>
                   </li>
                 ))
               }

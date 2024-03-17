@@ -44,7 +44,7 @@
   animation: rolling linear 1s infinite;
 }
 
-.wrapper li {
+.wrapper li a {
   width: 130px;
   min-height: 130px;
   padding: 20px 25px;
