@@ -161,7 +161,7 @@ function Page(props: any) {
                 <Col span={10} offset={4}></Col>
               </Row>
               <Row className='g-m-t-40'>
-                <Textarea status={status.message} value={form.message} onChange={e => setFormData('message', e.target.value)} placeholder='Type Your Message…' />
+                <Textarea status={status.message} value={form.message} onChange={(e: any) => setFormData('message', e.target.value)} placeholder='Type Your Message…' />
               </Row>
               <p className='g-ai-c g-m-tb-22'>
                 <span className='g-m-r-10 g-c-333'>if you want upload file, Please switch</span>

@@ -10,7 +10,7 @@ function App() {
   const getBasket = () => {
     fetch('/api/basket/get')
       .then(res => res.json()).then((res) => {
-        setBasket(res.data)
+        setBasket(res.data || [])
       })
   }
   useEffect(() => {

@@ -17,7 +17,7 @@ function Menu({ data }: any) {
       }
     }
   }
-  handleMenuData(data)
+  handleMenuData(data || [])
   const menu = [
     { href: '/', name: 'Home' },
     {
@@ -43,8 +43,9 @@ function Menu({ data }: any) {
   }
 
   const handleKeyDown = (e: KeyboardEvent) => {
-    if (e.key === 'Enter' && e.target?.value) {
-      router.push(`/category/key${e.target.value}`)
+    const value = (e.target as any).value;
+    if (e.key === 'Enter' && value) {
+      router.push(`/category/key${value}`)
     }
   }
 
@@ -69,7 +70,7 @@ function Menu({ data }: any) {
               ))
             }
             <li className={classnames(styles.search, 'g-p-r')}>
-              <input onKeyDown={handleKeyDown} />
+              <input onKeyDown={(e: any) => handleKeyDown(e)} />
               <SearchOutlined style={{ fontSize: 16 }} className={styles.icon} />
             </li>
           </ul>

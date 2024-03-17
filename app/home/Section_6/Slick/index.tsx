@@ -37,7 +37,7 @@ function App(props: any) {
       <div className={styles.slick}>
         {
           [1, 2].map(v => (
-            <ul key={v} className='g-d-f' style={{ '--animation-duration': speed * dataSource.length + 'ms' }}>
+            <ul key={v} className='g-d-f' style={{ 'animationDuration': speed * dataSource.length + 'ms' }}>
               {
                 dataSource.map((item: any, index: number) => (
                   <li key={index} className='g-ai-c g-fd-c g-bs-cb g-c-p'>

@@ -41,7 +41,7 @@
 }
 
 .wrapper ul {
-  animation: rolling var(--animation-duration, 10s) linear 1s infinite;
+  animation: rolling linear 1s infinite;
 }
 
 .wrapper li {
