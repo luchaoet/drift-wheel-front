@@ -5,8 +5,13 @@ import BlogTitle from '@/app/components/Document/BlogTitle'
 import { Empty } from 'antd';
 
 async function Page() {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API}/product/page?queryKey=in_basket&pageSize=50&pageIndex=1`).then(res => res.json())
-  const data = res.data || [];
+  let data = [];
+  try {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API}/product/page?queryKey=in_basket&pageSize=50&pageIndex=1`).then(res => res.json())
+    data = res.data || [];
+  } catch (error) {
+
+  }
 
   return (
     <>
