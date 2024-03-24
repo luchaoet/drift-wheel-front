@@ -1,6 +1,6 @@
 export async function POST(req: Request) {
   const d = await req.json()
-  const res = await fetch(process.env.NEXT_PUBLIC_API + '/basket/remove', {
+  const res = await fetch(process.env.NEXT_PUBLIC_API + '/service/basket/remove', {
     method: 'post',
     body: JSON.stringify(d),
     headers: {

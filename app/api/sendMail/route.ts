@@ -1,6 +1,6 @@
 export async function POST(req: Request) {
   const formData = await req.formData()
-  const res = await fetch(process.env.NEXT_PUBLIC_API + '/mail/send', {
+  const res = await fetch(process.env.NEXT_PUBLIC_API + '/service/mail/send', {
     method: 'post',
     body: formData
   })
