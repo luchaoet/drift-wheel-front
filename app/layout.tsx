@@ -27,7 +27,6 @@ export default async function RootLayout({
   } catch (error) {
 
   }
-  console.log(1, data)
 
   return (
     <ConfigProvider

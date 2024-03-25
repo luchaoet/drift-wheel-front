@@ -21,7 +21,7 @@ function Page(props: any) {
       fetch('/api/basket/get')
         .then(res => res.json())
         .then(res => {
-          setData(res.data)
+          setData(res?.data || [])
         })
     }
   }, [id])
@@ -125,7 +125,7 @@ function Page(props: any) {
         <img src="/images/contact-banner.png" className='g-w-100per g-banner-cover' />
       </section>
       {
-        !!data.length &&
+        !!data?.length &&
         <section className='g-bc-w g-p-t-50'>
           <div className='container-auto'>
             <p className={classnames(styles.title)}>Products ({data.length})</p>
