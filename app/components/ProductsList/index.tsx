@@ -2,7 +2,7 @@
 import styles from './index.module.css'
 import classnames from "classnames";
 import Link from 'next/link';
-import { Image } from 'antd'
+import { Image, message } from 'antd'
 import { useCallback, useState } from 'react';
 
 function App({ data, className, basket = [], basketButton = true }: any) {
@@ -17,7 +17,11 @@ function App({ data, className, basket = [], basketButton = true }: any) {
       method: 'post',
       body: JSON.stringify([id]),
     }).then(res => res.json()).then((res: any) => {
-      setBasket(res.data.products)
+      if (res.errorCode === '__200OK') {
+        setBasket(res.data.products)
+      } else {
+        message.error(res.errorMsg)
+      }
     })
   }
 
@@ -26,7 +30,11 @@ function App({ data, className, basket = [], basketButton = true }: any) {
       method: 'post',
       body: JSON.stringify([id]),
     }).then(res => res.json()).then((res: any) => {
-      setBasket(res.data.products)
+      if (res.errorCode === '__200OK') {
+        setBasket(res.data.products)
+      } else {
+        message.error(res.errorMsg)
+      }
     })
   }
 

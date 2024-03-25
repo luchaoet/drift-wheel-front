@@ -48,6 +48,12 @@ function Page(props: any) {
     })
   }
 
+  useEffect(() => {
+    if (!checked) {
+      setFormData('files', [])
+    }
+  }, [checked])
+
   const [status, setStatus] = useState({} as any);
   const checkStatus = () => {
     return new Promise((resolve, reject) => {
@@ -95,7 +101,7 @@ function Page(props: any) {
       formData.append(key, obj[key])
     })
     files.forEach((f: any) => {
-      formData.append('files[]', f)
+      formData.append('files', f)
     });
 
     fetch('/api/sendMail', {
@@ -106,6 +112,11 @@ function Page(props: any) {
       .then((res) => {
         if (res.errorCode === '__200OK') {
           message.success('Email Sent Successfully')
+          setForm({
+            subject: 'I want to know more about your company',
+            files: [],
+            message: ''
+          })
         } else {
           message.error(res.message || res.errorMsg)
         }

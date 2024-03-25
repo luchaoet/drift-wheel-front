@@ -1,7 +1,7 @@
 "use client"
 import styles from './index.module.css'
 import classnames from "classnames";
-import { Carousel, Image } from 'antd'
+import { Carousel, Image, message } from 'antd'
 import { useEffect, useState, useRef, useMemo } from 'react'
 import Link from 'next/link'
 import { Tabs } from 'antd';
@@ -86,7 +86,7 @@ function Page({ params }: any) {
   }
 
   const inBasket = useMemo(() => {
-    return !!basket.find((item: any) => item.productId === params.id)
+    return !!basket?.find((item: any) => item.productId === params.id)
   }, [basket, params.id])
 
   const addBasket = () => {
@@ -95,7 +95,11 @@ function Page({ params }: any) {
       method: 'post',
       body: JSON.stringify([params.id]),
     }).then(res => res.json()).then((res: any) => {
-      setBasket(res.data?.products || [])
+      if (res.errorMsg) {
+        message.error(res.errorMsg)
+      } else {
+        setBasket(res.data?.products || [])
+      }
     })
   }
 

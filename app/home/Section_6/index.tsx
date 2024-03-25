@@ -5,18 +5,29 @@ import Slick from './Slick';
 async function App() {
   let data = []
   try {
-
-    const res = await fetch(`/api/product/page?queryKey=all&queryValue=`)
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API}/service/product/page?queryKey=all&pageSize=50&pageIndex=1`)
       .then(res => res.json())
-    data = res.data || []
-  } catch (error) { }
-  if (!data.length) {
-    data = [
-      { img: '//img.hisupplier.com/var/userImages/2020-05/16/152313467_240.jpg', title: '1Replica Alloy Wheels', desc: 'Over 30,000 wheels in stock, full range car models, you can choose directly based on brand or size', productId: '1' },
-      { img: '//img.hisupplier.com/var/userImages/2020-05/16/152313467_240.jpg', title: '1Replica Alloy Wheels', desc: 'Over 30,000 wheels in stock, full range car models, you can choose directly based on brand or size', productId: '1' },
-      { img: '//img.hisupplier.com/var/userImages/2020-05/16/152313467_240.jpg', title: '1Replica Alloy Wheels', desc: 'Over 30,000 wheels in stock, full range car models, you can choose directly based on brand or size', productId: '1' },
-    ]
+    data = (res.data || []).map(({ imgList, title, productId }: any) => {
+      const img = process.env.NEXT_PUBLIC_IMG + imgList?.bigPic?.[0];
+      return {
+        img,
+        title,
+        productId
+      }
+    })
+  } catch (error) {
+    // console.log('error', error)
   }
+  // if (!data.length) {
+  //   data = [
+  //     { img: '//img.hisupplier.com/var/userImages/2020-05/16/152313467_240.jpg', title: '1Replica Alloy Wheels', desc: 'Over 30,000 wheels in stock, full range car models, you can choose directly based on brand or size', productId: '1' },
+  //     { img: '//img.hisupplier.com/var/userImages/2020-05/16/152313467_240.jpg', title: '1Replica Alloy Wheels', desc: 'Over 30,000 wheels in stock, full range car models, you can choose directly based on brand or size', productId: '1' },
+  //     { img: '//img.hisupplier.com/var/userImages/2020-05/16/152313467_240.jpg', title: '1Replica Alloy Wheels', desc: 'Over 30,000 wheels in stock, full range car models, you can choose directly based on brand or size', productId: '1' },
+  //   ]
+  // }
+
+
+
 
   let sliderData = [[], [], []]
   data.forEach((item: any, index: number) => {
