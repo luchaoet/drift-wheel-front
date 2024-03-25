@@ -80,7 +80,7 @@ function Page({ params }: any) {
 
   const getProduct = () => {
     fetch(`/api/product?productId=${params.id}`)
-      .then(res => res.json()).then((res) => {
+      .then(res => res?.json() || {}).then((res) => {
         setData(res.data)
       })
   }
