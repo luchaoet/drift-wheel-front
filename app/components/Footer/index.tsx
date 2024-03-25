@@ -29,7 +29,7 @@ function App() {
           </dt>
           <dd className={styles.desc}>Our Product/Service: audi alloy wheels,<br />mercedes alloy wheels, bmw alloy wheels</dd>
           <dd className={styles.more}>
-            <Link href="">Learn More &gt;</Link>
+            <Link href="/about-drift-wheel">Learn More &gt;</Link>
           </dd>
         </dl>
         <dl className={styles.info}>
