@@ -14,7 +14,7 @@ function Banner() {
         </h3>
       </div>
       <div>
-        <h3 className={styles.content}>
+        <h3 className={styles.container}>
           <img className='g-w-100per g-h-100per g-of-cover' src="/images/banner.png" alt="ss" />
         </h3>
       </div>
