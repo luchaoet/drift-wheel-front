@@ -5,7 +5,7 @@ import Slick from './Slick';
 async function App() {
   let data = []
   try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API}/service/product/page?queryKey=all&pageSize=50&pageIndex=1`)
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API}/service/product/page?queryKey=all&pageSize=50&pageIndex=1`, { cache: 'no-cache', })
       .then(res => res.json())
     data = (res.data || []).map(({ imgList, title, productId }: any) => {
       const img = process.env.NEXT_PUBLIC_IMG + imgList?.bigPic?.[0];

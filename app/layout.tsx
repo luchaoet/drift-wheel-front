@@ -22,10 +22,11 @@ export default async function RootLayout({
 }>) {
   let data = []
   try {
-    const res = await fetch(process.env.NEXT_PUBLIC_API + "/service/category/list").then(res => res.json());
+    const res = await fetch(process.env.NEXT_PUBLIC_API + "/service/category/list", {
+      cache: 'no-cache',
+    }).then(res => res.json());
     data = res.data;
   } catch (error) {
-
   }
 
   return (

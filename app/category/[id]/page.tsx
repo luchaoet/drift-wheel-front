@@ -7,7 +7,7 @@ import { Empty } from "antd";
 async function Page({ params }: any) {
   // 分类树
   const getCategoryList = async () => {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API}/service/category/list`).then(res => res.json())
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API}/service/category/list`, { cache: 'no-cache', }).then(res => res.json())
     return res.data || [];
   }
   let searchKey = '';
@@ -17,17 +17,17 @@ async function Page({ params }: any) {
       // 搜索词
       const key = params.id.replace(/^key/, '');
       searchKey = decodeURI(key);
-      const res = await fetch(`${process.env.NEXT_PUBLIC_API}/service/product?queryKey=category_id&searchKey=${key}`).then(res => res.json())
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API}/service/product?queryKey=category_id&searchKey=${key}`, { cache: 'no-cache', }).then(res => res.json())
       return res.data || [];
     } else {
       // 分类id
-      const res = await fetch(`${process.env.NEXT_PUBLIC_API}/service/product/page?queryKey=category_id&queryValue=${params.id}&pageSize=100&pageIndex=1`).then(res => res.json())
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API}/service/product/page?queryKey=category_id&queryValue=${params.id}&pageSize=100&pageIndex=1`, { cache: 'no-cache', }).then(res => res.json())
       return res.data || [];
     }
   }
   // 购物车
   const getBasket = async () => {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API}/service/product/page?queryKey=in_basket&pageSize=50&pageIndex=1`).then(res => res.json())
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API}/service/product/page?queryKey=in_basket&pageSize=50&pageIndex=1`, { cache: 'no-cache', }).then(res => res.json())
     return res.data || [];
   }
 
