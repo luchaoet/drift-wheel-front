@@ -2,9 +2,8 @@
 import styles from './index.module.css'
 import classnames from "classnames";
 import ProductsList from '../components/ProductsList'
-import { Row, Col, Input, Checkbox, Upload, Button, message } from 'antd'
+import { Row, Col, Input, Checkbox, Button, message } from 'antd'
 import Textarea from './Textarea'
-import { PlusOutlined } from '@ant-design/icons';
 import { useEffect, useState } from 'react'
 
 function Page(props: any) {
@@ -57,7 +56,7 @@ function Page(props: any) {
   const [status, setStatus] = useState({} as any);
   const checkStatus = () => {
     return new Promise((resolve, reject) => {
-      const checkKey = ['country', 'message', 'email', 'fullName'];
+      const checkKey = ['country', 'message', 'email', 'fullName', 'subject'];
       const msg = {} as any;
       for (const key of checkKey) {
         if (!form[key]) {
@@ -171,7 +170,12 @@ function Page(props: any) {
                 </Col>
                 <Col span={10} offset={4}></Col>
               </Row>
+
               <Row className='g-m-t-40'>
+                <Input status={status.subject} value={form.subject} onChange={e => setFormData('subject', e.target.value)} placeholder='Subject' addonBefore={'Subject'} />
+              </Row>
+
+              <Row className='g-m-t-4'>
                 <Textarea status={status.message} value={form.message} onChange={(e: any) => setFormData('message', e.target.value)} placeholder='Type Your Message…' />
               </Row>
               <p className='g-ai-c g-m-tb-22'>
@@ -181,18 +185,6 @@ function Page(props: any) {
               {
                 checked &&
                 <div>
-                  {/* <Upload
-                    action="/api/uploadFile"
-                    listType="picture-card"
-                    multiple
-                    fileList={form.files}
-                    onChange={handleChange}
-                  >
-                    <button style={{ border: 0, background: 'none' }} type="button">
-                      <PlusOutlined />
-                      <div style={{ marginTop: 8 }}>Upload</div>
-                    </button>
-                  </Upload> */}
                   <input type="file" multiple onChange={handleChange}></input>
                   <p className='g-m-t-10 g-c-999 g-lh-16 g-fs-12'>Format & Size-：jpg, jpeg, gif, txt, doc, xls or pdf format； Max. size of 500KB</p>
                 </div>
