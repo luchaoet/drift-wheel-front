@@ -140,7 +140,7 @@ function Page(props: any) {
         <section className='g-bc-w g-p-t-50'>
           <div className='container-auto'>
             <p className={classnames(styles.title)}>Products ({data.length})</p>
-            <ProductsList data={data} basketButton={!id} />
+            <ProductsList data={data} basketButton={false} />
           </div>
         </section>
       }

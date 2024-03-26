@@ -95,10 +95,10 @@ function Page({ params }: any) {
       method: 'post',
       body: JSON.stringify([params.id]),
     }).then(res => res.json()).then((res: any) => {
-      if (res.errorMsg) {
-        message.error(res.errorMsg)
-      } else {
+      if (res.errorCode === '__200OK') {
         setBasket(res.data?.products || [])
+      } else {
+        message.error(res.errorMsg)
       }
     })
   }
