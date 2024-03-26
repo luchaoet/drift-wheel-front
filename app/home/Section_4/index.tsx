@@ -37,7 +37,7 @@ function App() {
             </ul>
           </div>
           <div className={classnames(styles.middle, 'g-fs-0')}>
-            <img src="/images/section-02_1.png" alt="" />
+            <img src="/images/logo-1.png" alt="" />
           </div>
           <div className={styles.right}>
             <ul>

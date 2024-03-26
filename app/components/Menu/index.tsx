@@ -64,7 +64,7 @@ function Menu({ data }: any) {
     <section className={classnames(styles['height-90'], 'g-w-100per')}>
       <div className={classnames(styles.fixed, 'g-p-f g-w-100per g-ai-c g-zi-99')}>
         <div className={classnames(styles.content, 'g-jc-sb-ai-c g-h-100per')}>
-          <Link href="/"><img src="/images/section-04.png" alt="logo" /></Link>
+          <Link href="/"><img src="/images/logo.png" alt="logo" /></Link>
           <ul className={classnames(styles.menu, 'g-h-100per')}>
             {
               menu.map((item, index) => (

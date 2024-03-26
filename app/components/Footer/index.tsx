@@ -25,9 +25,9 @@ function App() {
       <div className={classnames(styles.container)}>
         <dl>
           <dt>
-            <img src="/images/section-04.png" alt="" />
+            <img src="/images/logo.png" alt="" />
           </dt>
-          <dd className={styles.desc}>Our Product/Service: audi alloy wheels,<br />mercedes alloy wheels, bmw alloy wheels</dd>
+          <dd className={styles.desc}>Our Product/Service:<br />Audi alloy wheels,<br />Mercedes alloy wheels,<br />BMW alloy wheels,<br />Land Rover alloy wheels,<br />Porsche alloy wheels, etc.</dd>
           <dd className={styles.more}>
             <Link href="/about-drift-wheel">Learn More &gt;</Link>
           </dd>
