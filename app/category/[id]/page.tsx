@@ -16,7 +16,7 @@ async function Page({ params }: any) {
     if (params.id.indexOf('key') === 0) {
       // 搜索词
       const key = params.id.replace(/^key/, '');
-      searchKey = key;
+      searchKey = decodeURI(key);
       const res = await fetch(`${process.env.NEXT_PUBLIC_API}/service/product?queryKey=category_id&searchKey=${key}`).then(res => res.json())
       return res.data || [];
     } else {

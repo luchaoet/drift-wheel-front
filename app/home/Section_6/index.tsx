@@ -18,16 +18,6 @@ async function App() {
   } catch (error) {
     // console.log('error', error)
   }
-  // if (!data.length) {
-  //   data = [
-  //     { img: '//img.hisupplier.com/var/userImages/2020-05/16/152313467_240.jpg', title: '1Replica Alloy Wheels', desc: 'Over 30,000 wheels in stock, full range car models, you can choose directly based on brand or size', productId: '1' },
-  //     { img: '//img.hisupplier.com/var/userImages/2020-05/16/152313467_240.jpg', title: '1Replica Alloy Wheels', desc: 'Over 30,000 wheels in stock, full range car models, you can choose directly based on brand or size', productId: '1' },
-  //     { img: '//img.hisupplier.com/var/userImages/2020-05/16/152313467_240.jpg', title: '1Replica Alloy Wheels', desc: 'Over 30,000 wheels in stock, full range car models, you can choose directly based on brand or size', productId: '1' },
-  //   ]
-  // }
-
-
-
 
   let sliderData = [[], [], []]
   data.forEach((item: any, index: number) => {

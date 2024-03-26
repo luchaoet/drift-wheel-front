@@ -194,7 +194,7 @@ function Page(props: any) {
                     </button>
                   </Upload> */}
                   <input type="file" multiple onChange={handleChange}></input>
-                  <p className='g-c-999 g-lh-16 g-fs-12'>Format & Size-：jpg, jpeg, gif, txt, doc, xls or pdf format； Max. size of 500KB</p>
+                  <p className='g-m-t-10 g-c-999 g-lh-16 g-fs-12'>Format & Size-：jpg, jpeg, gif, txt, doc, xls or pdf format； Max. size of 500KB</p>
                 </div>
               }
               <div className='g-m-t-40 g-ta-r'>

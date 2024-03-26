@@ -6,9 +6,23 @@ import { SearchOutlined } from '@ant-design/icons'
 import MobileMenu from '../MobileMenu'
 import ChildrenMenu from '../ChildrenMenu'
 import { usePathname, useRouter } from 'next/navigation'
+import { useState } from 'react';
 
 function Menu({ data }: any) {
   const router = useRouter();
+  const pathname = usePathname()
+
+  const [inputValue, setInputValue] = useState('')
+
+  const handleSearch = () => {
+    if (pathname.indexOf('/category/') >= 0) {
+      router.push(`/category/key${inputValue}`)
+    } else {
+      inputValue && router.push(`/category/key${inputValue}`)
+    }
+  }
+
+
   const handleMenuData = (d: any) => {
     for (const iterator of d) {
       iterator.href = '/category/' + iterator.categoryId
@@ -36,16 +50,13 @@ function Menu({ data }: any) {
     }
   ]
 
-  const pathname = usePathname()
-
   function isActive({ href }: any) {
     return href === pathname
   }
 
   const handleKeyDown = (e: KeyboardEvent) => {
-    const value = (e.target as any).value;
-    if (e.key === 'Enter' && value) {
-      router.push(`/category/key${value}`)
+    if (e.key === 'Enter') {
+      handleSearch()
     }
   }
 
@@ -70,8 +81,8 @@ function Menu({ data }: any) {
               ))
             }
             <li className={classnames(styles.search, 'g-p-r')}>
-              <input onKeyDown={(e: any) => handleKeyDown(e)} />
-              <SearchOutlined style={{ fontSize: 16 }} className={styles.icon} />
+              <input value={inputValue} onChange={(e) => setInputValue(e.target.value)} onKeyDown={(e: any) => handleKeyDown(e)} />
+              <SearchOutlined style={{ fontSize: 16 }} className={styles.icon} onClick={handleSearch} />
             </li>
           </ul>
           <MobileMenu className={styles.mobileMenu} data={menu} />
