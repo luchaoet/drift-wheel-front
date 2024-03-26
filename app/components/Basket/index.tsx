@@ -19,9 +19,7 @@ function App() {
 
   return pathname === '/inquiry-basket' ? null : (
     <Link href="/inquiry-basket" className={styles.wrapper}>
-      {
-        basket.length > 0 && <span className={styles.number}>{basket.length}</span>
-      }
+      <span id='basket_number' className={styles.number}>{basket.length}</span>
       <img src="/images/basket.png" alt="basket" className='g-w-100per' />
     </Link>
   )

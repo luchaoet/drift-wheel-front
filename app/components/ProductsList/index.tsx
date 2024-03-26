@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { Image, message } from 'antd'
 import { useCallback, useState } from 'react';
 
-function App({ data, className, basket = [], basketButton = true }: any) {
+function App({ data, className, basket = [], basketButton = true, onChange }: any) {
   const [inbasket, setBasket] = useState(basket)
 
   const inBasket = useCallback((productId: string) => {
@@ -18,7 +18,13 @@ function App({ data, className, basket = [], basketButton = true }: any) {
       body: JSON.stringify([id]),
     }).then(res => res.json()).then((res: any) => {
       if (res.errorCode === '__200OK') {
-        setBasket(res.data.products)
+        onChange && onChange()
+        const products = res.data?.products || [];
+        setBasket(products)
+        const num = document.getElementById('basket_number');
+        if (num) {
+          num.innerText = products.length
+        }
       } else {
         message.error(res.errorMsg)
       }
@@ -31,7 +37,12 @@ function App({ data, className, basket = [], basketButton = true }: any) {
       body: JSON.stringify([id]),
     }).then(res => res.json()).then((res: any) => {
       if (res.errorCode === '__200OK') {
-        setBasket(res.data.products)
+        const products = res.data?.products || [];
+        setBasket(products)
+        const num = document.getElementById('basket_number');
+        if (num) {
+          num.innerText = products.length
+        }
       } else {
         message.error(res.errorMsg)
       }
