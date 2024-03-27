@@ -5,6 +5,7 @@ import { Carousel, Image, message } from 'antd'
 import { useEffect, useState, useRef, useMemo } from 'react'
 import Link from 'next/link'
 import { Tabs } from 'antd';
+import { publish } from '../../../utils/events'
 
 function Page({ params }: any) {
   const [basket, setBasket] = useState([]);
@@ -98,10 +99,7 @@ function Page({ params }: any) {
       if (res.errorCode === '__200OK') {
         const products = res.data?.products || [];
         setBasket(products);
-        const num = document.getElementById('basket_number');
-        if (num) {
-          num.innerText = products.length
-        }
+        publish('updateBasket')
       } else {
         message.error(res.errorMsg)
       }

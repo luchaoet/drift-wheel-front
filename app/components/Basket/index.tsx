@@ -3,6 +3,7 @@ import styles from './index.module.css'
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation'
+import { subscribe } from '../../../utils/events'
 
 function App() {
   const pathname = usePathname()
@@ -15,6 +16,8 @@ function App() {
   }
   useEffect(() => {
     getBasket()
+    // 订阅 更新购物车
+    subscribe('updateBasket', getBasket)
   }, [])
 
   return pathname === '/inquiry-basket' ? null : (
