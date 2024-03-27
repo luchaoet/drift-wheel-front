@@ -235,7 +235,7 @@ function Page({ params }: any) {
               {
                 Object.keys(info).map((item: string, index: number) => (
                   data[item] && <li className='g-ai-c' key={index}>
-                    <i className='g-fw-b'>{info[item]}: </i>
+                    <i className='g-fw-b g-fs-0'>{info[item]}: </i>
                     <span className='g-m-l-4'>{data[item]}</span>
                   </li>
                 ))
