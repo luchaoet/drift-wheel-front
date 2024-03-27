@@ -91,13 +91,14 @@ function Page({ params }: any) {
   }, [basket, params.id])
 
   const addBasket = () => {
-    const url = `/api/basket/${inBasket ? 'remove' : 'add'}`
+    const url = `/api/basket/${inBasket ? 'remove' : 'add'}`;
+    const d = inBasket ? { id: data.productId } : { data }
     fetch(url, {
       method: 'post',
-      body: JSON.stringify([params.id]),
+      body: JSON.stringify(d),
     }).then(res => res.json()).then((res: any) => {
       if (res.errorCode === '__200OK') {
-        const products = res.data?.products || [];
+        const products = res.data || [];
         setBasket(products);
         publish('updateBasket')
       } else {

@@ -25,13 +25,8 @@ async function Page({ params }: any) {
       return res.data || [];
     }
   }
-  // 购物车
-  const getBasket = async () => {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API}/service/product/page?queryKey=in_basket&pageSize=50&pageIndex=1`, { cache: 'no-cache', }).then(res => res.json())
-    return res.data || [];
-  }
 
-  const [category, productPage, basket] = await Promise.all([getCategoryList(), getProductPage(), getBasket()])
+  const [category, productPage] = await Promise.all([getCategoryList(), getProductPage()])
 
   function getCurrentCategory(data: any[], id: string) {
     let temp = {
@@ -119,7 +114,7 @@ async function Page({ params }: any) {
             }
             {
               !!productPage.length
-                ? <ProductsList data={productPage} basket={basket} />
+                ? <ProductsList data={productPage} />
                 : <Empty className="g-p-t-50" />
             }
 

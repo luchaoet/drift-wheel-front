@@ -8,14 +8,6 @@ import { Empty, Button } from 'antd';
 import { useEffect, useState } from 'react';
 
 function Page() {
-  // let data = [] as any[];
-  // try {
-  //   const res = await fetch(`${process.env.NEXT_PUBLIC_API}/service/product/page?queryKey=in_basket&pageSize=50&pageIndex=1`).then(res => res.json())
-  //   data = res.data || [];
-  // } catch (error) {
-
-  // }
-
   const [data, setData] = useState([])
 
   const getList = () => {

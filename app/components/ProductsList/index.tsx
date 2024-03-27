@@ -3,11 +3,22 @@ import styles from './index.module.css'
 import classnames from "classnames";
 import Link from 'next/link';
 import { Image, message } from 'antd'
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { publish } from '../../../utils/events'
 
-function App({ data, className, basket = [], basketButton = true, onChange }: any) {
-  const [inbasket, setBasket] = useState(basket)
+function App({ data, className, basketButton = true, onChange }: any) {
+  const [inbasket, setBasket] = useState([])
+
+  const getBasket = () => {
+    fetch('/api/basket/get')
+      .then(res => res.json()).then((res) => {
+        setBasket(res.data || [])
+      })
+  }
+
+  useEffect(() => {
+    getBasket()
+  }, [])
 
   const inBasket = useCallback((productId: string) => {
     return !!inbasket?.find?.((item: any) => item.productId === productId)
@@ -16,11 +27,10 @@ function App({ data, className, basket = [], basketButton = true, onChange }: an
   const handleOutBasket = (id: string) => {
     fetch(`/api/basket/remove`, {
       method: 'post',
-      body: JSON.stringify([id]),
+      body: JSON.stringify({ id }),
     }).then(res => res.json()).then((res: any) => {
       if (res.errorCode === '__200OK') {
-        onChange && onChange()
-        const products = res.data?.products || [];
+        const products = res.data || [];
         setBasket(products)
         publish('updateBasket')
       } else {
@@ -29,13 +39,13 @@ function App({ data, className, basket = [], basketButton = true, onChange }: an
     })
   }
 
-  const handleInBasket = (id: string) => {
+  const handleInBasket = (data: any) => {
     fetch(`/api/basket/add`, {
       method: 'post',
-      body: JSON.stringify([id]),
+      body: JSON.stringify({ data }),
     }).then(res => res.json()).then((res: any) => {
       if (res.errorCode === '__200OK') {
-        const products = res.data?.products || [];
+        const products = res.data || [];
         setBasket(products)
         publish('updateBasket')
       } else {
@@ -67,7 +77,7 @@ function App({ data, className, basket = [], basketButton = true, onChange }: an
                   basketButton ?
                     inBasket(item.productId)
                       ? <img className='g-c-p' src="/images/inbasket.png" alt="basket" onClick={() => handleOutBasket(item.productId)} />
-                      : <img className='g-c-p' src="/images/basket.png" alt="basket" onClick={() => handleInBasket(item.productId)} />
+                      : <img className='g-c-p' src="/images/basket.png" alt="basket" onClick={() => handleInBasket(item)} />
                     : null
                 }
 

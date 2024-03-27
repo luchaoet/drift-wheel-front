@@ -7,11 +7,11 @@ import { subscribe } from '../../../utils/events'
 
 function App() {
   const pathname = usePathname()
-  const [basket, setBasket] = useState([]);
+  const [len, setLen] = useState(0);
   const getBasket = () => {
-    fetch('/api/basket/get')
+    fetch('/api/basket/getLen')
       .then(res => res.json()).then((res) => {
-        setBasket(res.data || [])
+        setLen(res.data)
       })
   }
   useEffect(() => {
@@ -22,7 +22,10 @@ function App() {
 
   return pathname === '/inquiry-basket' ? null : (
     <Link href="/inquiry-basket" className={styles.wrapper}>
-      <span id='basket_number' className={styles.number}>{basket.length}</span>
+      {
+        len > 0 &&
+        <span id='basket_number' className={styles.number}>{len}</span>
+      }
       <img src="/images/basket.png" alt="basket" className='g-w-100per' />
     </Link>
   )
