@@ -9,6 +9,7 @@
 
 .container dl {
   margin-left: 90px;
+  max-width: 50%;
 }
 
 .container dl dt {
