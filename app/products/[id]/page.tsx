@@ -275,10 +275,10 @@ function Page({ params }: any) {
       {
         !!relatedProduct.length
           ? (
-            <section className='g-p-t-50 g-p-b-50 g-bc-f6f6f6'>
+            <section className='g-p-t-50 g-p-b-40 g-bc-f6f6f6'>
               <div className="container-auto">
                 <h2 className='g-ta-c g-m-b-20 g-fs-40'>Related Product</h2>
-                <Carousel autoplay={true}>
+                <Carousel autoplay={true} className={styles.carousel}>
                   {
                     relatedProduct.map((item: any, index: number) => (
                       <div key={index}>

@@ -35,6 +35,13 @@ export default async function RootLayout({
       theme={{
         token: {
           colorPrimary: '#c8351c',
+        },
+        components: {
+          Carousel: {
+            dotActiveWidth: 30,
+            dotHeight: 10,
+            dotWidth: 20
+          }
         }
       }}
     >
