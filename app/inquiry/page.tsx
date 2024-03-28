@@ -5,11 +5,13 @@ import ProductsList from '../components/ProductsList'
 import { Row, Col, Input, Checkbox, Button, message } from 'antd'
 import Textarea from './Textarea'
 import { useEffect, useState } from 'react'
+import basket from '../../utils/basket'
 
 function Page(props: any) {
   const id = props.searchParams?.id;
-  const [data, setData] = useState([])
+  const [data, setData] = useState([] as any[])
   useEffect(() => {
+    basket.init()
     if (id) {
       fetch('/api/product?productId=' + id)
         .then(res => res.json())
@@ -17,11 +19,13 @@ function Page(props: any) {
           setData([res.data as never])
         })
     } else {
-      fetch('/api/basket/get')
-        .then(res => res.json())
-        .then(res => {
-          setData(res?.data || [])
-        })
+      // fetch('/api/basket/get')
+      //   .then(res => res.json())
+      //   .then(res => {
+      //     setData(res?.data || [])
+      //   })
+      const res = basket.get()
+      setData(res)
     }
   }, [id])
 

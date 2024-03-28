@@ -1,24 +1,28 @@
 "use client"
-
 import styles from './index.module.css'
 import classnames from "classnames";
 import ProductsList from '../components/ProductsList'
 import BlogTitle from '@/app/components/Document/BlogTitle'
 import { Empty, Button } from 'antd';
 import { useEffect, useState } from 'react';
+import basket from '../../utils/basket'
 
 function Page() {
-  const [data, setData] = useState([])
+  const [data, setData] = useState([] as any[])
 
   const getList = () => {
-    fetch(`/api/basket/get`).then(res => res.json()).then(res => {
-      const data = res?.data || [];
-      setData(data)
-    })
-
+    // fetch(`/api/basket/get`).then(res => res.json()).then(res => {
+    //   const data = res?.data || [];
+    //   setData(data)
+    // })
+    const res = basket.get()
+    setData(res)
   }
 
-  useEffect(getList, [])
+  useEffect(() => {
+    basket.init()
+    getList()
+  }, [])
 
   return (
     <>

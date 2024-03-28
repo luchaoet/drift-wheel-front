@@ -2,62 +2,72 @@
 import styles from './index.module.css'
 import classnames from "classnames";
 import Link from 'next/link';
-import { Image, message } from 'antd'
-import { useCallback, useEffect, useState } from 'react';
+import { Image } from 'antd'
+import { useCallback, useEffect, useState, useMemo } from 'react';
 import { publish } from '../../../utils/events'
+import basketCache from '../../../utils/basket'
 
 function App({ data, className, basketButton = true, onChange }: any) {
-  const [inbasket, setBasket] = useState([])
+  const [basket, setBasket] = useState([] as any[])
 
-  const getBasket = () => {
-    fetch('/api/basket/get')
-      .then(res => res.json()).then((res) => {
-        setBasket(res.data || [])
-      })
-  }
+
+  const dataSource = useMemo(() => {
+    return data.map((d: any) => {
+      const inBasket = basket.findIndex(i => i.productId === d.productId) >= 0;
+      return { ...d, inBasket }
+    })
+  }, [data.length, basket.length])
 
   useEffect(() => {
-    getBasket()
+    basketCache.init()
+    const res = basketCache.get()
+    setBasket(res)
   }, [])
 
-  const inBasket = useCallback((productId: string) => {
-    return !!inbasket?.find?.((item: any) => item.productId === productId)
-  }, [inbasket])
+  const hasBasket = useCallback((productId: string) => {
+    return basket.findIndex(i => i.productId === productId) >= 0
+  }, [basket.length, data.length])
 
   const handleOutBasket = (id: string) => {
-    fetch(`/api/basket/remove`, {
-      method: 'post',
-      body: JSON.stringify({ id }),
-    }).then(res => res.json()).then((res: any) => {
-      if (res.errorCode === '__200OK') {
-        const products = res.data || [];
-        setBasket(products)
-        publish('updateBasket')
-      } else {
-        message.error(res.errorMsg)
-      }
-    })
+    // fetch(`/api/basket/remove`, {
+    //   method: 'post',
+    //   body: JSON.stringify({ id }),
+    // }).then(res => res.json()).then((res: any) => {
+    //   if (res.errorCode === '__200OK') {
+    //     const products = res.data || [];
+    //     setBasket(products)
+    //     publish('updateBasket')
+    //   } else {
+    //     message.error(res.errorMsg)
+    //   }
+    // })
+    const res = basketCache.remove(id)
+    setBasket(res)
+    publish('updateBasket')
   }
 
-  const handleInBasket = (data: any) => {
-    fetch(`/api/basket/add`, {
-      method: 'post',
-      body: JSON.stringify({ data }),
-    }).then(res => res.json()).then((res: any) => {
-      if (res.errorCode === '__200OK') {
-        const products = res.data || [];
-        setBasket(products)
-        publish('updateBasket')
-      } else {
-        message.error(res.errorMsg)
-      }
-    })
+  const handleInBasket = (d: any) => {
+    // fetch(`/api/basket/add`, {
+    //   method: 'post',
+    //   body: JSON.stringify({ data }),
+    // }).then(res => res.json()).then((res: any) => {
+    //   if (res.errorCode === '__200OK') {
+    //     const products = res.data || [];
+    //     setBasket(products)
+    //     publish('updateBasket')
+    //   } else {
+    //     message.error(res.errorMsg)
+    //   }
+    // })
+    const res = basketCache.add(d)
+    setBasket(res)
+    publish('updateBasket')
   }
 
   return (
     <ul className={classnames(className, styles.wrapper, 'g-w-100per')}>
       {
-        data.map((item: any, index: number) => {
+        dataSource.map((item: any, index: number) => {
           const src = process.env.NEXT_PUBLIC_IMG + item?.imgList?.bigPic?.[0];
           return (
             <li key={index}>
@@ -75,7 +85,7 @@ function App({ data, className, basketButton = true, onChange }: any) {
                 <span className='g-fs-16 g-c-666 g-fw-b'>{item.model}</span>
                 {
                   basketButton ?
-                    inBasket(item.productId)
+                    item.inBasket
                       ? <img className='g-c-p' src="/images/inbasket.png" alt="basket" onClick={() => handleOutBasket(item.productId)} />
                       : <img className='g-c-p' src="/images/basket.png" alt="basket" onClick={() => handleInBasket(item)} />
                     : null

@@ -6,9 +6,10 @@ import { useEffect, useState, useRef, useMemo } from 'react'
 import Link from 'next/link'
 import { Tabs } from 'antd';
 import { publish } from '../../../utils/events'
+import basketCache from '../../../utils/basket'
 
 function Page({ params }: any) {
-  const [basket, setBasket] = useState([]);
+  const [basket, setBasket] = useState([] as any[]);
   const [data, setData] = useState({} as any);
 
   const categoryId = useMemo(() => {
@@ -73,10 +74,12 @@ function Page({ params }: any) {
   }, [data?.productDescription?.supplyCapacity])
 
   const getBasket = () => {
-    fetch('/api/basket/get')
-      .then(res => res.json()).then((res) => {
-        setBasket(res.data)
-      })
+    // fetch('/api/basket/get')
+    //   .then(res => res.json()).then((res) => {
+    //     setBasket(res.data)
+    //   })
+    const res = basketCache.get()
+    setBasket(res)
   }
 
   const getProduct = () => {
@@ -91,23 +94,28 @@ function Page({ params }: any) {
   }, [basket, params.id])
 
   const addBasket = () => {
-    const url = `/api/basket/${inBasket ? 'remove' : 'add'}`;
-    const d = inBasket ? { id: data.productId } : { data }
-    fetch(url, {
-      method: 'post',
-      body: JSON.stringify(d),
-    }).then(res => res.json()).then((res: any) => {
-      if (res.errorCode === '__200OK') {
-        const products = res.data || [];
-        setBasket(products);
-        publish('updateBasket')
-      } else {
-        message.error(res.errorMsg)
-      }
-    })
+    // const url = `/api/basket/${inBasket ? 'remove' : 'add'}`;
+    // const d = inBasket ? { id: data.productId } : { data }
+    // fetch(url, {
+    //   method: 'post',
+    //   body: JSON.stringify(d),
+    // }).then(res => res.json()).then((res: any) => {
+    //   if (res.errorCode === '__200OK') {
+    //     const products = res.data || [];
+    //     setBasket(products);
+    //     publish('updateBasket')
+    //   } else {
+    //     message.error(res.errorMsg)
+    //   }
+    // })
+
+    const res = inBasket ? basketCache.remove(data) : basketCache.add(data)
+    setBasket(res);
+    publish('updateBasket')
   }
 
   useEffect(() => {
+    basketCache.init()
     getBasket()
     getProduct()
   }, [params.id])

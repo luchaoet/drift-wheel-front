@@ -1,6 +1,7 @@
 import { getCache } from '../cache'
 
-export async function GET() {
+export async function GET(req: any) {
+  console.log(req.headers.get('x-forwarded-for'))
   const data = getCache() || [];
   return Response.json({
     data,
