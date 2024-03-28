@@ -204,7 +204,7 @@ function Page({ params }: any) {
         <div className="container-auto g-d-f">
           <div className={classnames(styles.left, 'g-fs-0 g-mw-0')} style={{ maxWidth: 500 }}>
             <div className='g-m-b-30'>
-              <Carousel autoplay={false} ref={carouselRef}>
+              <Carousel autoplay={false} ref={carouselRef} dots={false}>
                 {
                   bigImages.map((item: string, index: number) => (
                     <div key={index}>

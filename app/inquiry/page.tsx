@@ -77,8 +77,15 @@ function Page(props: any) {
   }
 
   const handleChange = (e: any) => {
-    const files = e.target.files || {};
-    setFormData('files', Object.values(files));
+    const files = Object.values(e.target.files || {});
+    const size = files.reduce((a: any, b: any) => a + b.size, 0) as number;
+    // 500KB
+    if (size > 500 * 1024) {
+      message.warning('Max. size of 500KB')
+      return e.target.value = '';
+    } else {
+      setFormData('files', files);
+    }
   }
 
 
