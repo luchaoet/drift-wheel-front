@@ -11,7 +11,7 @@ function App() {
   return (
     <>
       <section className={classnames(styles.wrapper, 'g-c-p')} onClick={() => setIsModalOpen(true)}>
-        <img className='g-w-100per' src="/images/section-05.png" alt="" />
+        <img className='g-w-100per' src="/images/section-05.jpeg" alt="" />
       </section>
       <Modal destroyOnClose footer={null} title="Introduction of Drift Wheel" open={isModalOpen} onOk={() => setIsModalOpen(false)} onCancel={() => setIsModalOpen(false)}>
         <video className='g-w-100per' autoPlay src="/images/video.mp4"></video>

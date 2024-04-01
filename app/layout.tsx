@@ -11,8 +11,8 @@ import "./globals.css";
 import '@luchao/base-css';
 
 export const metadata: Metadata = {
-  title: "China MONOBLOCK FORGED Manufacturer, one peice forged wheels Supplier and Factory",
-  description: "China MONOBLOCK FORGED manufacturers and  one peice forged wheels suppliers. Welcome to import quality MONOBLOCK FORGED at competitive price from our factory here.",
+  title: "China Forged Wheel Manufacturer, Die Casting and Flow Forming Rim Supplier and Factory",
+  description: "Ningbo Drift Wheel Co., Ltd. is one of the leading audi alloy wheels, mercedes alloy wheels, bmw alloy wheels manufacturers and suppliers in China. Welcome to import audi alloy wheels at competitive price here.",
 };
 
 export default async function RootLayout({

@@ -8,7 +8,7 @@ function App() {
   return (
     <section className={classnames(styles.wrapper, 'g-c-b g-ta-c')}>
       <h2 className='g-fw-b'>High End Alloy Wheels to Support Your Business</h2>
-      <p>Wheelshome can always be your reliable partner in China, to rocket your business with quality alloy wheels ( 8 years warranty)</p>
+      <p>DRIFTWHEEL can always be your reliable partner in China, to rocket your business with quality alloy wheels ( 8 years warranty)</p>
       <div className={classnames(styles.product)}>
         <dl>
           <dt>
