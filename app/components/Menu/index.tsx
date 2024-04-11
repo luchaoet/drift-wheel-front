@@ -39,12 +39,13 @@ function Menu({ data }: any) {
     },
     { href: '/about-drift-wheel', name: 'About Us' },
     { href: '/inquiry', name: 'Contact Us' },
-    { href: '/blog', name: 'Blog' },
-    { href: '/company-activities', name: 'Company Activities' },
+    // { href: '/blog', name: 'Blog' },
+    { href: '/vehicle-galleries', name: 'Gallery' },
     {
       href: '', name: 'More', children: [
-        { href: '/doc/763733', name: 'Dragon Boat Festival' },
-        { href: '/doc/758012', name: 'Labor Day on May 1' },
+        { href: '/company-activities', name: 'Company Activities' },
+        // { href: '/doc/763733', name: 'Dragon Boat Festival' },
+        // { href: '/doc/758012', name: 'Labor Day on May 1' },
         { href: '/wheel-tech', name: 'Wheel Tech' },
       ]
     }

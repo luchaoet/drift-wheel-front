@@ -121,16 +121,15 @@ function Page({ params }: any) {
   }, [params.id])
 
   const info: any = {
-    model: 'Model',
-    placeOfOrigin: 'Place of Origin',
-    driveWheel: 'Drive Wheel',
-    finishing: 'Finishing',
-    material: 'Material',
-    diameter: 'Diameter',
-    brandName: 'Brand Name',
-    width: 'Width',
-    carMake: 'Car Make',
-    availableSize: 'AVAILABLE SIZE'
+    model: 'MODEL NO.',
+    placeOfOrigin: 'PLACE OF ORIGIN',
+    availableSize: 'SIZE',
+    offsetRange: 'OFFSET',
+    pcd: 'PCD',
+    centerBore: 'CENTER BORE',
+    finishing: 'FINISH',
+    brandName: 'BRAND NAME',
+    carMake: 'CAR MAKE',
   }
 
   const carouselRef: any = useRef()
