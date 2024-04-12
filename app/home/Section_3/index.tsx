@@ -28,9 +28,6 @@ async function App() {
     data = data.slice(0, 4)
   }
 
-  console.log(1, data)
-
-
   return (
     <section className={classnames(styles.wrapper, 'g-c-b g-ta-c')}>
       <h2 className='g-fw-b'>High End Alloy Wheels to Support Your Business</h2>
