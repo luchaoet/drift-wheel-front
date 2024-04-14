@@ -4,7 +4,7 @@ import styles from './index.module.css'
 import classnames from "classnames";
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
-import { Image } from 'antd'
+import { Image, Empty } from 'antd'
 
 function Page() {
 
@@ -36,23 +36,28 @@ function Page() {
         <div className='container-auto'>VEHICLE GALLERY</div>
       </section>
       <section className={classnames(styles.wrapper)}>
-        <div className={classnames('container-auto', styles.container)}>
-          {
-            data.map((item: any, index: number) => (
-              <dl key={index}>
-                <dt>
-                  <Image
-                    width={'100%'}
-                    src={process.env.NEXT_PUBLIC_IMG + item.image}
-                  />
-                </dt>
-                <dd className='g-p-t-18 g-p-lr-10 g-p-b-6 g-fs-20 g-fw-b g-e-1 g-ta-c'>{item.carModel}</dd>
-                <dd className='g-ta-c g-p-lr-10 g-fs-12 g-e-1' style={{ color: '#999' }}>{item.categoryId}</dd>
-                <dd className='g-ta-c g-p-lr-10 g-fs-14 g-e-1 g-lh-30 g-p-b-30'>{item.productId}</dd>
-              </dl>
-            ))
-          }
-        </div>
+        {
+          data.length ?
+            <div className={classnames('container-auto', styles.container)}>
+              {
+                data.map((item: any, index: number) => (
+                  <dl key={index}>
+                    <dt>
+                      <Image
+                        width={'100%'}
+                        src={process.env.NEXT_PUBLIC_IMG + item.image}
+                      />
+                    </dt>
+                    <dd className='g-p-t-18 g-p-lr-10 g-p-b-6 g-fs-20 g-fw-b g-e-1 g-ta-c'>{item.carModel}</dd>
+                    <dd className='g-ta-c g-p-lr-10 g-fs-12 g-e-1' style={{ color: '#999' }}>{item.categoryId}</dd>
+                    <dd className='g-ta-c g-p-lr-10 g-fs-14 g-e-1 g-lh-30 g-p-b-30'>{item.productId}</dd>
+                  </dl>
+                ))
+              }
+            </div>
+            : <div className='g-p-t-50 g-p-b-50 g-jc-ai-c'><Empty /></div>
+
+        }
       </section>
     </>
   )
