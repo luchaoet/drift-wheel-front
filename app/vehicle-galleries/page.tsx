@@ -4,14 +4,20 @@ import styles from './index.module.css'
 import classnames from "classnames";
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
-import { Image, Empty } from 'antd'
+import { Image, Empty, Pagination } from 'antd'
 
 function Page() {
 
-  const [data, setData] = useState([]);
+  const [data, setData] = useState([] as any[]);
+  const [pager, setPager] = useState({
+    currentPage: 1,
+    pageSize: 20,
+    total: 0,
+    totalPage: 1
+  });
 
-  const getList = () => {
-    fetch('/api/show')
+  const getList = (currentPage: number = 1, pageSize: number = 20) => {
+    fetch(`/api/show?queryValue=&pageIndex=${currentPage}&pageSize=${pageSize}`)
       .then(res => res.json())
       .then(res => {
         const data = (res.data || []).map((item: any) => {
@@ -21,7 +27,9 @@ function Page() {
             ...showInfo
           }
         })
+
         setData(data)
+        setPager(res.pager)
       })
   }
 
@@ -29,6 +37,15 @@ function Page() {
   useEffect(() => {
     getList()
   }, [])
+
+  const onChange = (currentPage: number, pageSize: number) => {
+    setPager((data) => ({
+      ...data,
+      currentPage,
+      pageSize,
+    }))
+    getList(currentPage, pageSize)
+  }
 
   return (
     <>
@@ -59,6 +76,17 @@ function Page() {
 
         }
       </section>
+      {
+        pager.totalPage > 1 &&
+        <section className='g-jc-c g-p-t-20 g-p-b-40'>
+          <Pagination
+            pageSize={pager.pageSize}
+            current={pager.currentPage}
+            total={pager.total}
+            onChange={onChange}
+          />
+        </section>
+      }
     </>
   )
 }
