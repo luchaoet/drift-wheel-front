@@ -25,7 +25,22 @@ export default async function RootLayout({
     const res = await fetch(process.env.NEXT_PUBLIC_API + "/service/category/list", {
       cache: 'no-cache',
     }).then(res => res.json());
-    data = res.data;
+
+    const d = (res.data || []).sort((a: any, b: any) => {
+      const aIndex = Number(a.index) ?? 0;
+      const bIndex = Number(b.index) ?? 0;
+      return aIndex - bIndex;
+    })
+
+    for (let index = 0; index < d.length; index++) {
+      const children = d[index].children;
+      d[index].children = children.sort((a: any, b: any) => {
+        const aIndex = Number(a.index) ?? 0;
+        const bIndex = Number(b.index) ?? 0;
+        return aIndex - bIndex;
+      })
+    }
+    data = d;
   } catch (error) {
   }
 
