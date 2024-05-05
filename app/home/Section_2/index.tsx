@@ -10,17 +10,17 @@ function App() {
           <Carousel autoplay>
             <div className={styles['carousel-slide']}>
               <h3>
-                <img src="https://wheelshome.com/wp-content/uploads/2021/08/IMG_8919-scaled.jpg" alt="" />
+                <img className={styles['carousel-slide-img']} src="http://www.drift-wheel.com:8081/img/work_room1.jpg" alt="" />
               </h3>
             </div>
             <div className={styles['carousel-slide']}>
-              <h3><img src="https://wheelshome.com/wp-content/uploads/2021/08/IMG_8919-scaled.jpg" alt="" /></h3>
+              <h3><img className={styles['carousel-slide-img']} src="http://www.drift-wheel.com:8081/img/work_room2.jpg" alt="" /></h3>
             </div>
             <div className={styles['carousel-slide']}>
-              <h3><img src="https://wheelshome.com/wp-content/uploads/2021/08/IMG_8919-scaled.jpg" alt="" /></h3>
+              <h3><img className={styles['carousel-slide-img']} src="http://www.drift-wheel.com:8081/img/work_room1.jpg" alt="" /></h3>
             </div>
             <div className={styles['carousel-slide']}>
-              <h3><img src="https://wheelshome.com/wp-content/uploads/2021/08/IMG_8919-scaled.jpg" alt="" /></h3>
+              <h3><img className={styles['carousel-slide-img']} src="http://www.drift-wheel.com:8081/img/work_room2.jpg" alt="" /></h3>
             </div>
           </Carousel>
         </div>

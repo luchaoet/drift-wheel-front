@@ -12,7 +12,7 @@ function App() {
   ]
 
   const contactUs = [
-    { title: 'Address', content: `Room 702,Yingsheng Mansion 456 Middle Tai'an Road ,Yinzhou District (South CBD), Ningbo, Zhejiang, China (Mainland)/315199 ` },
+    { title: 'Address', content: `Fenghua Cross-border E-commerce Park, No. 68 Donghuan Road, Fenghua District, 315500 Ningbo, Zhejiang, China` },
     { title: 'Telephone', content: '86-574-89257258' },
     { title: 'Fax', content: '86-574-89257258' },
     { title: 'Contact Person', content: 'Mr.Steven Dai' },
